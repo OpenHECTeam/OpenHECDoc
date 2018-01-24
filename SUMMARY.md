@@ -1,3 +1,46 @@
 # Summary
 
-* [First Chapter](chapter1.md)
+* [ 介绍](README.md)
+  * [OpenHEC平台简介](openhecping-tai-jian-jie.md)
+    * [硬件](openhecping-tai-jian-jie/zi-yuan.md)
+    * [知识点](openhecping-tai-jian-jie/zhi-shi-dian.md)
+    * 学习路径
+    * 训练营
+    * 个人中心
+  * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
+    * [大致流程简介](yong-hu-kai-fa-liu-cheng/da-zhi-liu-cheng-jian-jie.md)
+    * [oDisk云盘](yong-hu-kai-fa-liu-cheng/odisk.md)
+    * EDA开发工具云
+    * FPGA硬件云
+  * [开发流程范例](kai-fa-liu-cheng-fan-li.md)
+    * 组合逻辑与门
+    * 时序逻辑D触发器
+    * 片上ROM存储接口
+    * 片外RAM存储接口
+    * 组合逻辑数码管
+    * 时序逻辑LED点阵
+    * 教学版SRAM存储接口
+    * 软硬件协同之sobel算法加速
+* [硬件](chapter1.md)
+  * [云硬件介绍](chapter1/yun-ying-jian-jie-shao.md)
+  * 支撑包
+  * [Flyx-SOM](chapter1/flyx-somji-chu-pei-zhi.md)
+    * [基础配置](chapter1/flyx-somji-chu-pei-zhi/ji-chu-pei-zhi.md)
+    * [快速体验](chapter1/kuai-su-ti-yan.md)
+      * [组合逻辑与门](chapter1/kuai-su-ti-yan/zu-he-luo-ji-yu-men.md)
+      * 组合逻辑数码管
+    * [硬件支撑包](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao.md)
+      * 实验支撑包RELAX\_FlyxSOM入门手册
+      * 实验支撑包RELAX\_FlyxSOM\_LED7SEG入门手册
+      * 实验支撑包RELAX\_FlyxSOM\_LED7SEG\_SRAM入门手册
+      * 项目支撑包RELAXSoC\_FlyxSOM入门手册
+* [知识点](zhi-shi-dian.md)
+  * [工具类](zhi-shi-dian/gong-ju-lei.md)
+    * [Vivado](zhi-shi-dian/gong-ju-lei/vivado.md)
+  * [语言类](zhi-shi-dian/yu-yan-lei.md)
+    * [Verilog](zhi-shi-dian/yu-yan-lei/hdl.md)
+    * HLS
+  * [课程类](zhi-shi-dian/ke-cheng-lei.md)
+  * 技能类
+* [常见问题](chang-jian-wen-ti.md)
+
