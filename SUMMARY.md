@@ -13,7 +13,7 @@
     * EDA开发工具云
     * FPGA硬件云
   * [开发流程范例](kai-fa-liu-cheng-fan-li.md)
-    * 组合逻辑与门
+    * [组合逻辑与门](kai-fa-liu-cheng-fan-li/zu-he-luo-ji-yu-men.md)
     * 时序逻辑D触发器
     * 片上ROM存储接口
     * 片外RAM存储接口
