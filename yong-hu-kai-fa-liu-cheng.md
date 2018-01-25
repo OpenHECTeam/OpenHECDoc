@@ -28,11 +28,9 @@ OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.
 
 #### 二、使用虚拟机
 
-选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击使用虚拟机，请耐心等待三分种左右，申请成功后的虚拟机页面如下。
+选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击使用虚拟机，请耐心等待三分种左右，申请成功后的虚拟机页面如下。![](/assets/vivado.png)
 
-
-
-**oLibs**
+虚拟机里面主要安装了 **oLib**
 
 **oDisk**
 
