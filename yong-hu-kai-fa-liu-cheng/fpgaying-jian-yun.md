@@ -2,9 +2,33 @@
 
 OpenHEC FPGA公有云目前接入了大量的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012) FPGA节点\(芯片型号为：Xilinx ZYNQ 7030），让用户更加线上体验FPGA。![](/assets/openhec_fpga_cloud.png)
 
+---
+
 选择[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击**使用FPGA**, 无需任何等待，成功申请到FPGA节点。
 
-如下图所示，FPGA操作页面主要提供了虚拟面板、终端界面、视频监控、运行记录、我的oDisk和操作说明主要功能。
+如下图所示，FPGA操作页面主要提供了虚拟面板、终端界面、视频监控、运行记录、我的oDisk和操作说明主要功能。![](/assets/fpga_page.png)
 
-!\[\]\(/assets/fpga\_page.png\)
+* ---
+
+  #### **配置FPGA**
+
+  点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流。
+
+        先选中相应的位流，同时选择FPGA需要的配置方式，点击配置即可以，如下图所示。![](/assets/fpga_config.png)
+
+* #### 高级设置
+
+* #### 虚拟面板
+
+* #### 终端界面
+
+* #### 视频监控
+
+* #### 运行记录
+
+* #### 我的oDisk
+
+* #### 操作说明
+
+
 
