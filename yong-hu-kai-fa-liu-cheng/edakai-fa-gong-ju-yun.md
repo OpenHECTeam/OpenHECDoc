@@ -14,7 +14,7 @@
 
 **oLib**是当前资源入口的相关实验资料及所用到的平台支撑包，在开发时直接引用即可以。
 
-目前OpenHEC平台上的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)支撑包主要有4类，其支撑包名如下。
+目前OpenHEC平台上的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)支撑包主要有4类，其支撑包名如下，主要用在纯FPGA开发模式和SoC开发模式。
 
 * **RELAX\_FlyxSOM  ----  纯FPGA开发模式**  
   1. 480个虚拟输入  
@@ -43,6 +43,8 @@
   1. 1组32-bit AXI4Lite Master  
   2. 1组32-bit AXI4 Slave  
   3. ZYNQ PS端软件驱动库
+
+[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)支撑包的详细文档请参考 。
 
 #### 三、**oDisk**
 
