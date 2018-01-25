@@ -10,8 +10,6 @@ OpenHEC的资源入口有硬件、知识点和训练营。
 
 OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，建议选择[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)硬件入口体验FPGA云开发环境，页面如下图所示。![](/assets/flyxsom_page.png)
 
-
-
 #### [**知识点**](http://www.iopenhec.com/#!/experiment/)
 
 知识点入口主要是针对点对点的实验内容学习场景预留的开发入口，用户可以选择自己感兴趣的知识点即可。
@@ -22,14 +20,11 @@ OpenHEC平台使用教程下的[组合逻辑与门](http://www.iopenhec.com/#!/e
 
 ![](/assets/zuheluoji.png)
 
-
 #### [**训练营**](http://www.iopenhec.com/#!/event/)
 
 训练营入口主要是针对实践项目、创新创业的大赛预留的开发入口，用户须加入相应的训练营才可以使用FPGA云开发环境。
 
 深度学习训练营的详情页面如下。![](/assets/shenduxuexi.png)
-
-
 
 #### 
 
