@@ -28,7 +28,23 @@ OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.
 
 #### 二、使用虚拟机
 
+**oLibs**
 
+
+
+**oDisk**
+
+
+
+**Vivado**
+
+
+
+**Vivado HLS**
+
+
+
+**Vivado SDK**
 
 ---
 
