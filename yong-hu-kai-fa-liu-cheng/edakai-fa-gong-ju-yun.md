@@ -54,3 +54,7 @@
 
 虚拟机EDA开发工具主要有Vivado、Vivado HLS和Vivado SDK。
 
+* **Vivado**
+
+
+
