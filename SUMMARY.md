@@ -10,7 +10,7 @@
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
     * [选择开发入口](yong-hu-kai-fa-liu-cheng/odisk.md)
     * [使用虚拟机](yong-hu-kai-fa-liu-cheng/edakai-fa-gong-ju-yun.md)
-    * [使用硬件节点](yong-hu-kai-fa-liu-cheng/fpgaying-jian-yun.md)
+    * [使用FPGA](yong-hu-kai-fa-liu-cheng/fpgaying-jian-yun.md)
   * [开发流程范例](kai-fa-liu-cheng-fan-li.md)
     * [组合逻辑与门](kai-fa-liu-cheng-fan-li/zu-he-luo-ji-yu-men.md)
     * 时序逻辑D触发器
