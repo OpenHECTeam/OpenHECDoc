@@ -63,9 +63,5 @@
 
   Vivado 高层综合技术（HLS）实现直接使用 C，C++ 以及 System C 语言规范对赛灵思全可编程器件进行编程，无需手动创建 RTL，从而可加速 IP（功能模块） 创建。
 
-        ![](/assets/hls.png)
-
-!\[\]\(/assets/hls.png\)
-
 
 
