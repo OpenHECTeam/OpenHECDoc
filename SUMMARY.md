@@ -9,6 +9,9 @@
     * 个人中心
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
     * [选择开发入口](yong-hu-kai-fa-liu-cheng/odisk.md)
+      * [硬件](yong-hu-kai-fa-liu-cheng/odisk/ying-jian.md)
+      * [知识点](yong-hu-kai-fa-liu-cheng/odisk/zhi-shi-dian.md)
+      * 训练营
     * [使用虚拟机](yong-hu-kai-fa-liu-cheng/edakai-fa-gong-ju-yun.md)
     * [使用硬件节点](yong-hu-kai-fa-liu-cheng/fpgaying-jian-yun.md)
   * [开发流程范例](kai-fa-liu-cheng-fan-li.md)
