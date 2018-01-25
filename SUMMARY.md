@@ -20,19 +20,19 @@
     * 时序逻辑LED点阵
     * 教学版SRAM存储接口
     * 软硬件协同之sobel算法加速
-* [硬件](chapter1.md)
-  * [云硬件介绍](chapter1/yun-ying-jian-jie-shao.md)
+* [硬件](ying-jian.md)
+  * [云硬件介绍](ying-jian/yun-ying-jian-jie-shao.md)
   * 支撑包
-  * [Flyx-SOM](chapter1/flyx-somji-chu-pei-zhi.md)
-    * [基础配置](chapter1/flyx-somji-chu-pei-zhi/ji-chu-pei-zhi.md)
-    * [快速体验](chapter1/kuai-su-ti-yan.md)
-      * [组合逻辑与门](chapter1/kuai-su-ti-yan/zu-he-luo-ji-yu-men.md)
+  * [Flyx-SOM](ying-jian/flyx-somji-chu-pei-zhi.md)
+    * [基础配置](ying-jian/flyx-somji-chu-pei-zhi/ji-chu-pei-zhi.md)
+    * [快速体验](ying-jian/kuai-su-ti-yan.md)
+      * [组合逻辑与门](ying-jian/kuai-su-ti-yan/zu-he-luo-ji-yu-men.md)
       * 组合逻辑数码管
-    * [硬件支撑包](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao.md)
-      * [RELAX\_FlyxSOM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.md)
-      * [RELAX\_FlyxSOM\_LED7SEG](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.md)
-      * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
-      * [RELAXSoC\_FlyxSOM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
+    * [硬件支撑包](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao.md)
+      * [RELAX\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.md)
+      * [RELAX\_FlyxSOM\_LED7SEG](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.md)
+      * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
+      * [RELAXSoC\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
 * [知识点](zhi-shi-dian.md)
   * [工具类](zhi-shi-dian/gong-ju-lei.md)
     * [Vivado](zhi-shi-dian/gong-ju-lei/vivado.md)
