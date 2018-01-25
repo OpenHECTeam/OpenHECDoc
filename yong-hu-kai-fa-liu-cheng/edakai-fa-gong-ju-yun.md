@@ -1,3 +1,5 @@
+### 使用虚拟机
+
 [Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击使用虚拟机，请耐心等待三分种左右，等待虚拟机页面。
 
 虚拟机主要提供了FPGA开发必备的EDA工具Xilinx **Vivado**、用户文件同步空间**oDisk**、支撑包库及相应资料**oLib**等，如下图所示。![](/assets/vivado.png)
