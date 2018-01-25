@@ -30,10 +30,10 @@
       * [组合逻辑与门](chapter1/kuai-su-ti-yan/zu-he-luo-ji-yu-men.md)
       * 组合逻辑数码管
     * [硬件支撑包](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao.md)
-      * 实验支撑包RELAX\_FlyxSOM入门手册
-      * 实验支撑包RELAX\_FlyxSOM\_LED7SEG入门手册
-      * 实验支撑包RELAX\_FlyxSOM\_LED7SEG\_SRAM入门手册
-      * 项目支撑包RELAXSoC\_FlyxSOM入门手册
+      * [RELAX\_FlyxSOM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.md)
+      * [RELAX\_FlyxSOM\_LED7SEG](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.md)
+      * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
+      * [RELAXSoC\_FlyxSOM](chapter1/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
 * [知识点](zhi-shi-dian.md)
   * [工具类](zhi-shi-dian/gong-ju-lei.md)
     * [Vivado](zhi-shi-dian/gong-ju-lei/vivado.md)
