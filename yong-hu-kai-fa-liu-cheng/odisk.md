@@ -1,6 +1,6 @@
 ### 选择开发入口
 
-OpenHEC的资源入口有硬件、知识点和训练。
+OpenHEC的资源入口有硬件、知识点和训练营。
 
 #### [硬件](http://www.iopenhec.com/#!/hardware/)
 

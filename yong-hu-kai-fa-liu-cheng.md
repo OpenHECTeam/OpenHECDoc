@@ -2,47 +2,23 @@
 
 [OpenHEC 平台](/www.iopenhec.com)FPGA开发的流程一般分为选择开发入口、使用虚拟机和使用FPGA。
 
----
+#### 开发入口
 
-#### 一、选择开发入口
+OpenHEC平台的FPGA开发入口主要有硬件、知识点和训练营；用户可以从这三个入口选择合适的内容开始FPGA开发；每一个资源入口一般有对应资源的文档、资料、讨论、使用虚拟机和使用FPGA等功能入口。
 
-OpenHEC的资源入口有硬件、知识点和训练。
+如下图所示，选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为例子。
 
-##### [硬件](http://www.iopenhec.com/#!/hardware/)
+![](/assets/flyxsom_page.png)
 
-硬件入口主要是针对新用户体验云硬件和自由开发预留的开发入口，用户只要选择相应的硬件类型即可使用。
+#### 使用虚拟机
 
-OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，建议选择[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)硬件入口体验FPGA云开发环境，页面如下图所示。![](/assets/flyxsom_page.png)
+从某一资源的开发入口，比如点击使用虚拟机，等待2-3分钟左右，成功申请到虚拟机资源。
 
-[**知识点**](http://www.iopenhec.com/#!/experiment/)
+#### 使用FPGA
 
-知识点入口主要是针对点对点的实验内容学习场景预留的开发入口，用户可以选择自己感兴趣的知识点即可。
-
-知识点主要有OpenHEC平台使用教程、EDA工具教程、Verilog HDL基础入门、HLS基础入门、CPU设计等一些基础的实验学习知识点。知识点的归类请参考[学习路径](http://www.iopenhec.com/#!/studyroute/)。
-
-[**训练营**](http://www.iopenhec.com/#!/event/)
-
-训练营入口主要是针对实践项目、创新创业的大赛预留的开发入口，用户须加入相应的训练营才可以使用FPGA云开发环境。
+从某一资源的开发入口
 
 ---
-
-#### 二、使用虚拟机
-
-选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击使用虚拟机，请耐心等待三分种左右，申请成功后的虚拟机页面如下。![](/assets/vivado.png)
-
-虚拟机里面主要安装了 **oLib**
-
-**oDisk**
-
-**Vivado**
-
-**Vivado HLS**
-
-**Vivado SDK**
-
----
-
-#### 三、使用FPGA
 
 
 
