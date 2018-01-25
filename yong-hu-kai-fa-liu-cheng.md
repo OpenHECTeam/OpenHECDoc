@@ -6,7 +6,7 @@
 
 OpenHEC平台的FPGA开发入口主要有硬件、知识点和训练营；用户可以从这三个入口选择合适的内容开始FPGA开发；每一个资源入口一般有对应资源的文档、资料、讨论、使用虚拟机和使用FPGA等功能入口。
 
-如下图所示，选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为例子。
+下图所示的是OpenHEC平台上[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)硬件资源入口。
 
 ![](/assets/flyxsom_page.png)
 
