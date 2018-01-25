@@ -4,7 +4,7 @@
   * [OpenHEC平台简介](openhecping-tai-jian-jie.md)
     * [硬件](openhecping-tai-jian-jie/zi-yuan.md)
     * [知识点](openhecping-tai-jian-jie/zhi-shi-dian.md)
-    * 学习路径
+    * [学习路径](openhecping-tai-jian-jie/xue-xi-lu-jing.md)
     * 训练营
     * 个人中心
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
