@@ -12,7 +12,7 @@ OpenHEC的资源入口有硬件、知识点和训练。
 
 硬件入口主要是针对新用户体验云硬件和自由开发预留的开发入口，用户只要选择相应的硬件类型即可使用。
 
-OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，建议选择[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)硬件入口体验FPGA云开发环境。
+OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，建议选择[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)硬件入口体验FPGA云开发环境，页面如下图所示。![](/assets/flyxsom_page.png)
 
 [**知识点**](http://www.iopenhec.com/#!/experiment/)
 
@@ -28,21 +28,17 @@ OpenHEC平台上目前主要提供的硬件类型节点是[Flyx-SOM](http://www.
 
 #### 二、使用虚拟机
 
+选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为开发入口，点击使用虚拟机，请耐心等待
+
+
+
 **oLibs**
-
-
 
 **oDisk**
 
-
-
 **Vivado**
 
-
-
 **Vivado HLS**
-
-
 
 **Vivado SDK**
 

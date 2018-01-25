@@ -8,7 +8,6 @@
     * 训练营
     * 个人中心
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
-    * [大致流程简介](yong-hu-kai-fa-liu-cheng/da-zhi-liu-cheng-jian-jie.md)
     * [oDisk网盘](yong-hu-kai-fa-liu-cheng/odisk.md)
     * [EDA虚拟机](yong-hu-kai-fa-liu-cheng/edakai-fa-gong-ju-yun.md)
     * [FPGA硬件节点](yong-hu-kai-fa-liu-cheng/fpgaying-jian-yun.md)
