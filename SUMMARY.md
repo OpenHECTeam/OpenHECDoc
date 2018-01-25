@@ -5,8 +5,8 @@
     * [硬件](openhecping-tai-jian-jie/zi-yuan.md)
     * [知识点](openhecping-tai-jian-jie/zhi-shi-dian.md)
     * [学习路径](openhecping-tai-jian-jie/xue-xi-lu-jing.md)
-    * 训练营
-    * 个人中心
+    * [训练营](openhecping-tai-jian-jie/xun-lian-ying.md)
+    * [个人中心](openhecping-tai-jian-jie/ge-ren-zhong-xin.md)
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
     * [选择开发入口](yong-hu-kai-fa-liu-cheng/odisk.md)
     * [使用虚拟机](yong-hu-kai-fa-liu-cheng/edakai-fa-gong-ju-yun.md)
