@@ -8,7 +8,7 @@ OpenHEC平台的FPGA开发入口主要有硬件、知识点和训练营；用户
 
 如下图所示，选择硬件平台下的[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)为例子。
 
-![](/assets/flyxsom_page.png)
+![](/assets/flyxsom_page.png "Flyx-SOM硬件资源入口")
 
 #### 使用虚拟机
 
