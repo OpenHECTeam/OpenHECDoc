@@ -57,21 +57,13 @@
 * **Vivado**  
   Vivado设计套件，是FPGA厂商赛灵思公司2012年发布的集成设计环境。Vivado的设计流程主要分为工程设计、综合、实现和生成FPGA位流，其主要流程如下图。
 
-  ```
-             ![](/assets/07f7b2541ba1bc7e2b022c3fc062e74f.png)
-  ```
+  ![](/assets/vivado_flow.png)
 
 * **Vivado HLS**
 
   Vivado 高层综合技术（HLS）实现直接使用 C，C++ 以及 System C 语言规范对赛灵思全可编程器件进行编程，无需手动创建 RTL，从而可加速 IP（功能模块） 创建。
 
-  ```
-              ![](/assets/hls.png)
-  ```
-
-* **Vivado SDK**
-
-*                           ![](/assets/hls.png)
+* ![](/assets/hls.png)
 
 
 
