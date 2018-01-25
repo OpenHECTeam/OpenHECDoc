@@ -54,10 +54,17 @@
 
 虚拟机EDA开发工具主要有Vivado、Vivado HLS和Vivado SDK。
 
-* **Vivado**
-Vivado设计套件，是FPGA厂商赛灵思公司2012年发布的集成设计环境。包括高度集成的设计环境和新一代从系统到IC级的工具，这些均建立在共享的可扩展数据模型和通用调试环境基础上。这也是一个基于AMBA AXI4 互联规范、IP-XACT IP封装元数据、工具命令语言(TCL)、Synopsys 系统约束(SDC) 以及其它有助于根据客户需求量身定制设计流程并符合业界标准的开放式环境。赛灵思构建的的Vivado 工具把各类可编程技术结合在一起，能够扩展多达1 亿个等效ASIC 门的设计。
+* **Vivado**  
+  Vivado设计套件，是FPGA厂商赛灵思公司2012年发布的集成设计环境。Vivado的设计流程主要分为工程设计、综合、实现和生成FPGA位流，其主要流程如下图。
+
+                 ![](/assets/07f7b2541ba1bc7e2b022c3fc062e74f.png)
 
 * **Vivado HLS**
+
+  Vivado 高层综合技术（HLS）实现直接使用 C，C++ 以及 System C 语言规范对赛灵思全可编程器件进行编程，无需手动创建 RTL，从而可加速 IP（功能模块） 创建。
+
+                  ![](/assets/hls.png)
+
 * **Vivado SDK**
 
 
