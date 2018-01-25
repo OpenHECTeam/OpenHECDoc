@@ -4,9 +4,9 @@
   * [OpenHEC平台简介](openhecping-tai-jian-jie.md)
     * [硬件](openhecping-tai-jian-jie/zi-yuan.md)
     * [知识点](openhecping-tai-jian-jie/zhi-shi-dian.md)
-    * 学习路径
-    * 训练营
-    * 个人中心
+    * [学习路径](openhecping-tai-jian-jie/xue-xi-lu-jing.md)
+    * [训练营](openhecping-tai-jian-jie/xun-lian-ying.md)
+    * [个人中心](openhecping-tai-jian-jie/ge-ren-zhong-xin.md)
   * [用户开发流程](yong-hu-kai-fa-liu-cheng.md)
     * [大致流程简介](yong-hu-kai-fa-liu-cheng/da-zhi-liu-cheng-jian-jie.md)
     * [oDisk云盘](yong-hu-kai-fa-liu-cheng/odisk.md)
