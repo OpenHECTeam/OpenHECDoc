@@ -6,9 +6,15 @@
 
 组合逻辑与门的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170401000000000006](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
-实验资料oLib目录中主要包含RELAX\_FlyxSOM支撑包和4输入与门IP核。
+组合逻辑与门采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
+
+实验资料**oLib**目录中主要包含  **RELAX\_FlyxSOM支撑包 **
+
+**4输入与门IP核**。
 
 #### 二、使用虚拟机
+
+新建FPGA开发工程，芯片
 
 
 
