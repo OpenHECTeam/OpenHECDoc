@@ -44,7 +44,9 @@ FPGA节点Linux系统中 **/home/linaro**目录自动同步**我的oDisk**的资
 
 #### 五、我的oDisk
 
-我的oDisk是
+我的oDisk是OpenHEC平台用户的文件同步空间，方便本地、虚拟机和FPGA节点的文件同步；直接加载到FPGA节点开发目录下（**/home/linaro**）。![](/assets/my_odisk.png)
+
+---
 
 #### 六、 其他功能
 
