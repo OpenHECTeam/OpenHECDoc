@@ -6,6 +6,8 @@
 
 组合逻辑与门的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170401000000000006](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
+实验资料oLib目录中主要包含RELAX\_FlyxSOM支撑包和4输入与门IP核。
+
 #### 二、使用虚拟机
 
 
