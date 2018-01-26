@@ -18,7 +18,7 @@
     * 片外RAM存储接口
     * 组合逻辑数码管
     * 时序逻辑LED点阵
-    * 教学版SRAM存储接口
+    * 教学板SRAM存储接口
     * 软硬件协同之sobel算法加速
 * [硬件](ying-jian.md)
   * [云硬件介绍](ying-jian/yun-ying-jian-jie-shao.md)
