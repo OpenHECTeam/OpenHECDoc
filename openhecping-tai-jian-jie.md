@@ -1,6 +1,6 @@
 OpenHEC（Open ecosystem for High-Efficiency Computing）是为高能效计算需求而打造的基于FPGA的开放生态。目标就是要把FPGA以云的方式更大范围地共享，让更多人更简单、更便利、更便宜的使用。
 
-![](https://mmbiz.qlogo.cn/mmbiz_png/VibVplc4qlFq6zXEBzZWZmtibLB6l9acHskOPD4fCo2agbUUS71Eq2kGtPZCK3EHJu7oggpMJopVNAjEEG3cMk6Q/0?wx_fmt=png)
+![](/assets/QQ截图20180129175235.jpg)
 
 共享单车、共享充电宝、共享雨伞！？？为什么不能来点更有技术含量的......让我们把未来的**人工智能计算引擎（FPGA）**共享了吧！
 
@@ -26,7 +26,7 @@ OpenHEC云不只提供自有硬件，还将兼容更多第三方硬件（即将�
 
 目前，OpenHEC公有云已部署到曙光云数据中心，对外提供数百个FPGA硬件节点，就等你来！
 
-![](https://mmbiz.qlogo.cn/mmbiz_png/VibVplc4qlFq6zXEBzZWZmtibLB6l9acHsksibFt4ibTA05sEqibhtWrUy8K2GLqaowmGa3j9MBWwnK5fy0icfcPmarg/0)
+![](/assets/QQ截图20180129175247.jpg)
 
 所以......你就可以理解为啥训练营价格这么低！因为在线共享！为啥训练营可以同时容纳1000人，因为在线共享！！
 
