@@ -28,11 +28,11 @@
 
 2. ##### 添加基础IP核
 
-   从oLib中拷贝与门的IP核 `OpenHEC_user_and4in_logic_1.0.zip `到桌面文件夹`proj_ip 里面。`
+   从oLib中拷贝与门的IP核 `OpenHEC_user_and4in_logic_1.0.zip`到桌面文件夹`proj_ip 里面。`
 
    在左侧菜单`Flow Navigator/Project Manager，`选项卡下点击`IP Catalog，`在窗口选择`IP Setting，`弹出`Project Setting`
 
-   窗口，在`IP`选项卡，通过`+`添加`IP Repositories`，选择桌面文件夹`proj_ip `目录，然后在`IP in Selected Repository`
+   窗口，在`IP`选项卡，通过`+`添加`IP Repositories`，选择桌面文件夹`proj_ip`目录，然后在`IP in Selected Repository`
 
    选择需要用到的IP\(即`OpenHEC_user_and4in_logic_1.0.zip`\) ，完成后点击下方`Apply`，然后点击`OK`。![](/assets/addand4in_ip.png)
 
@@ -62,22 +62,31 @@
 
 5. ##### 用户逻辑与实验支撑包的接口绑定
 
-   打开`and4in_bd_wrapper.v`文件，拷贝`and4in_bd`中的管脚绑定（见图5.11）。
+   打开`and4in_bd_wrapper.v`文件，拷贝`and4in_bd`中的管脚绑定。![](/assets/and4bd001.png)
 
-   打开`OpenHEC_Exp_Top.v`文件，找到 用户自定义顶层module实例化区域，粘贴`and4in_bd`中拷贝的IO管脚绑定（见图5.12）。
+   打开OpenHEC\_Exp\_Top.v文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。![](/assets/top001.png)
 
-   根据第4章节`RELAX_FlyxSOM`实验支撑包解析说明，选择相应的IO管脚绑定。
+   根据`RELAX_FlyxSOM`实验支撑包解析说明，选择相应的IO管脚绑定。实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。参考代码如下：
 
-   实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。
+6. ```
+   user_wrapper_top user_wrapper_top_uut
+    (
+        .A(SW00),
+        .B(SW01),
+        .C(SW02),
+        .D(SW03),
+        .F(LED00)
+    );
+   ```
 
-   实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。参考代码如下：
 
-   在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加**‘//’**
 
-   注释掉 LED00的初始赋值，参考代码如下：
+   在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加**‘//’**注释掉 LED00的初始赋值，参考代码如下：
 
-6. ##### 综合与实现
-7. ##### 完成开发
+   `//assign LED00 = SW00;`
+
+7. ##### 综合与实现
+8. ##### 完成开发
 
 #### 三、使用FPGA
 
