@@ -102,18 +102,18 @@ OpenHEC项目支撑包提供以下编译命令：
 
 OpenHEC项目支撑包支持两种加速器开发模式：IDE模式和shell模式。
 
-* **IDE模式**
+* **IDE模式**  
   建好代码文件后，在dev\_proj目录下，执行make user\_ip命令。该命令将基于src和tb目录下代码文件建立用户加速器IP设计的子工程，并打开Vivado HLS IDE环境，进入图形化开发界面。
 
   Vivado HLS IDE使用方法请参考Xilinx官方用户手册《UG871: Vivado Design Suite Tutorial High-Level Synthesis》
 
-* **Shell模式**
+* **Shell模式**  
   用户直接可以直接通过vim、gedit等第三方的文本编辑器进行代码开发。项目支撑包的makefile支持以命令行方式执行功能仿真、综合和IP生成，对应的命令如下：
 
-	| 命令 | 功能 |
-| :--- | :--- |
-| make csim | 执行功能仿真，进行代码功能调试 |
-| make csynth | 执行高层综合，将C、C++代码转换成硬件逻辑，并打包生成加速器IP |
+  | 命令 | 功能 |
+  | :--- | :--- |
+  | make csim | 执行功能仿真，进行代码功能调试 |
+  | make csynth | 执行高层综合，将C、C++代码转换成硬件逻辑，并打包生成加速器IP |
 
 在Shell模式下，项目支撑包会自动对整个项目进行管理。
 
@@ -134,12 +134,10 @@ void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){
 
 user\_accel包含以下四个主要部分：
 
-```
-函数名：一方面，作为C仿真的入口，主函数或其它外围函数通过调用user_accel函数来对加速器功能进行功能仿真。另一方面，函数名user_accel直接对应加速器IP的硬件模块名，在硬件模块集成时被项目支撑包使用。注意：项目支撑包默认user_accel为加速器名。因此，开发过程中请勿更改函数名，否则项目支撑包中的自动化工具将无法识别加速器IP。
-参数列表：参数类型TYPE、参数名param和参数个数可以根据加速器设计的需要由用户自己定义，但需要遵循HLS的代码规范，使HLS工具能正确地将函数参数转换为硬件IP接口。
-加速器接口约束：对参数列表中的各个参数添加约束，使HLS工具能将其转换成指定协议的硬件接口。
-加速器功能实现：该部分包含加速器功能所有实现，代码中支持函数的嵌套调用。
-```
+1. 函数名：一方面，作为C仿真的入口，主函数或其它外围函数通过调用user\_accel函数来对加速器功能进行功能仿真。另一方面，函数名user\_accel直接对应加速器IP的硬件模块名，在硬件模块集成时被项目支撑包使用。注意：项目支撑包默认user\_accel为加速器名。因此，开发过程中请勿更改函数名，否则项目支撑包中的自动化工具将无法识别加速器IP。
+2. 参数列表：参数类型TYPE、参数名param和参数个数可以根据加速器设计的需要由用户自己定义，但需要遵循HLS的代码规范，使HLS工具能正确地将函数参数转换为硬件IP接口。
+3. 加速器接口约束：对参数列表中的各个参数添加约束，使HLS工具能将其转换成指定协议的硬件接口。
+4. 加速器功能实现：该部分包含加速器功能所有实现，代码中支持函数的嵌套调用。
 
 ##### 3 加速器IP的设计、开发和功能仿真
 
@@ -178,29 +176,45 @@ testbench文件也是普通的C、C++代码文件，但必须放在src/tb目录�
 
 完成功能仿真后，下一步目标是将user\_accel代码生成硬件IP。HLS工具会自动完成C、C++代码到硬件逻辑的转换。用户需要做的是让代码符合高层综合的编码规范，并且在代码中添加必要的编译指示和接口约束，使HLS工具能按照用户的要求生成硬件IP接口和逻辑。此外，为了达到更高的性能，需要对访存、循环迭代等核心代码进行优化设计。
 
-* #### 添加接口约束
+* **添加接口约束**
 
-当前版本的OpenHEC项目支撑包提供两个32位AXI总线接口，一个是32位的AXI4接口，支持burst类型数据传输；另一个是32位的AXI4 Lite接口，仅支持单个总线事务传输，主要用于性能要求不高的场景，如IP的运行时参数配置。下面是接口约束的一个简单示例。
-	```HLS
-	void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){
-	//加速器接口约束
-	//HP inteface(axi4 master)
-	#pragma HLS INTERFACE m_axi port = param1 offset = slave bundle = user_axi register
-	#pragma HLS INTERFACE s_axilite port = param1 bundle = user_axi4lite  register
+  当前版本的OpenHEC项目支撑包提供两个32位AXI总线接口，一个是32位的AXI4接口，支持burst类型数据传输；另一个是32位的AXI4 Lite接口，仅支持单个总线事务传输，主要用于性能要求不高的场景，如IP的运行时参数配置。下面是接口约束的一个简单示例。
 
-	//GP interface(axi4lite slave)
-	#pragma HLS INTERFACE s_axilite port = param2bundle = user_axi4lite  register
-	#pragma HLS INTERFACE s_axilite port =param3 bundle = user_axi4lite  register
-	#pragma HLS INTERFACE s_axilite port = param4 bundle = user_axi4lite  register
-	……
-	#pragma HLS INTERFACE s_axilite port =paramN bundle = user_axi4lite  register
-	#pragma HLS INTERFACE s_axilite port = addr_reserved offset = 0xFFF0 bundle = user_axi4lite  register   
-	#pragma HLS INTERFACE s_axilite port = return bundle = user_axi4lite  register
+  `void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){`
 
-	//加速器功能代码
+  `//加速器接口约束`
 
-	}
-	```
+  `//HP inteface(axi4 master)`
+
+  `#pragma HLS INTERFACE m_axi port = param1 offset = slave bundle = user_axi register`
+
+  `#pragma HLS INTERFACE s_axilite port = param1 bundle = user_axi4lite register`
+
+  `//GP interface(axi4lite slave)`
+
+  `#pragma HLS INTERFACE s_axilite port = param2bundle = user_axi4lite register`
+
+  `#pragma HLS INTERFACE s_axilite port =param3 bundle = user_axi4lite register`
+
+  `#pragma HLS INTERFACE s_axilite port = param4 bundle = user_axi4lite register`
+
+  `……`
+
+  `#pragma HLS INTERFACE s_axilite port =paramN bundle = user_axi4lite register`
+
+  `#pragma HLS INTERFACE s_axilite port = addr_reserved offset = 0xFFF0 bundle = user_axi4lite register`
+
+  `#pragma HLS INTERFACE s_axilite port = return bundle = user_axi4lite register`
+
+  `//加速器功能代码`
+
+  `}`
+
+  每一条接口约束均以\#pragma关键词开头。OpenHEC项目支撑包预定义了两个AXI类的总线接口，分别为user\_axi和user\_axi4lite。前者是32位的AXI4类型接口，后者是32位的AXI4 Lite类型接口。
+
+```HLS
+
+```
 
 每一条接口约束均以\#pragma关键词开头。OpenHEC项目支撑包预定义了两个AXI类的总线接口，分别为user\_axi和user\_axi4lite。前者是32位的AXI4类型接口，后者是32位的AXI4 Lite类型接口。
 
