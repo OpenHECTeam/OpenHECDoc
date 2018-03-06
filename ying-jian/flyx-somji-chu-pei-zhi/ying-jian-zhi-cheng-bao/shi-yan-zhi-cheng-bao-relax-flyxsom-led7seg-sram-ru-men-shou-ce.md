@@ -719,6 +719,7 @@
 当列中的PIN脚为低电平时（即PIN13、PIN3、PIN4、PIN10、PIN6、PIN11、PIN15和PIN16），选中PIN脚所在的列；当行中的PIN脚为高电平时（即PIN9、PIN14、PIN8、PIN12、PIN1、PIN7、PIN2和PIN5），选中PIN脚所在的行；只有当行中和列中的PIN脚同时被选中十才能点亮相应LED点。
 
 #### 六、SRAM存储
+
 教学版中采用的SRAM芯片型号为`IS61WV51216BLL`,其地址线是512K，数据线是16bit。用户可以参考其芯片手册及相关资料，这里不作详细说明。资料参考连接： http://pdf1.alldatasheet.com/datasheet-pdf/view/311087/ISSI/IS61WV51216BLL-10TLI.html
 
 
