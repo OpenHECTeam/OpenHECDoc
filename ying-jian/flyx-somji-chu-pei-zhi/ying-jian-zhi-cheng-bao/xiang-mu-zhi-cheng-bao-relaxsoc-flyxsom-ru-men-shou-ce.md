@@ -181,7 +181,6 @@ testbench文件也是普通的C、C++代码文件，但必须放在src/tb目录�
 * #### 添加接口约束
 
 当前版本的OpenHEC项目支撑包提供两个32位AXI总线接口，一个是32位的AXI4接口，支持burst类型数据传输；另一个是32位的AXI4 Lite接口，仅支持单个总线事务传输，主要用于性能要求不高的场景，如IP的运行时参数配置。下面是接口约束的一个简单示例。
-
 	```HLS
 	void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){
 	//加速器接口约束
