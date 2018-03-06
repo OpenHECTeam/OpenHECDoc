@@ -22,7 +22,6 @@
     * 软硬件协同之sobel算法加速
 * [硬件](ying-jian.md)
   * [云硬件介绍](ying-jian/yun-ying-jian-jie-shao.md)
-  * 支撑包
   * [Flyx-SOM](ying-jian/flyx-somji-chu-pei-zhi.md)
     * [基础配置](ying-jian/flyx-somji-chu-pei-zhi/ji-chu-pei-zhi.md)
     * [快速体验](ying-jian/kuai-su-ti-yan.md)
