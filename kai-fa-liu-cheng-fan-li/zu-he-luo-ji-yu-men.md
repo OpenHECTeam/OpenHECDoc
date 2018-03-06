@@ -87,11 +87,15 @@
 
    ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 Tools/Run Tcl Script，选择文件夹oLib/RELAX\_FlyxSOM/tcl 下的_ _relax\_syn\_imp\_flow.tcl文件，点击OK，自动运行综合与实现。
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 Tools/Run Tcl Script，选择文件夹oLib/RELAX\_FlyxSOM/tcl 下的relax\_syn\_imp\_flow.tcl文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹proj\_ip/and4in\_proj下。![](/assets/gbit001.png)
+
+   ---
 
 7. ##### 完成开发
 
-##### 
+   拷贝桌面文件夹proj\_ip/and4in\_proj下的位流文件and4in\_proj.bit 到oDisk目录，完成开发。
+
+
 
 #### 三、使用FPGA
 
