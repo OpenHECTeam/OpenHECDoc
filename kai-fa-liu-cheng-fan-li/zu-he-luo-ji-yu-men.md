@@ -104,8 +104,13 @@
 
 1. ##### 配置比特流到FPGA
 
-   ##### 
+   点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的and4in\_proj.bit位流，同时选择纯FPGA模式的配置方式，点击配置即可以，如下图所示。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。![](/assets/genbit004.png)
+
 2. ##### IO实时监控
+
+   当输入开关A、B、 C、 D都置1时，输出信号灯F 才会点亮。![](/assets/and4in_001.png)
+
+   当输入开关A、B、 C、 D其中有一个置0时，输出信号灯F 都不亮。![](/assets/adn4in002.png)
 
 
 
