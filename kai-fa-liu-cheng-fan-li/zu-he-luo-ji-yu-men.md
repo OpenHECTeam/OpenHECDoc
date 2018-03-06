@@ -73,7 +73,7 @@
    1. ```
       //assign LED00 = SW00; 
 
-      user_wrapper_top user_wrapper_top_uut
+      and4in_bd_wrapper user_wrapper_top_uut
        (
            .A(SW00),
            .B(SW01),
@@ -83,9 +83,12 @@
        );
       ```
 
-6. ##### 综合与实现
+6. ---
 
-   ##### 
+   ##### 综合与实现
+
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 Tools/Run Tcl Script，选择文件夹oLib/RELAX\_FlyxSOM/tcl 下的_ _relax\_syn\_imp\_flow.tcl文件，点击OK，自动运行综合与实现。
+
 7. ##### 完成开发
 
 ##### 
