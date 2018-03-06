@@ -12,16 +12,15 @@ OpenHEC项目支撑包V1.0基本功能如下：
 	提供标准的硬件接口定义，支持加速器IP通过32位的AXI4总线接口和32位AXI4 Lite总线接口与FPGA SoC的其它硬件资源进行互联
 	支持通过make命令的方式，“一键”直接从C、C++代码生成加速器的FPGA位流文件和接口驱动
 
-##2 项目支撑包简介
+#### 二、项目支撑包简介
+
 基于OpenHEC项目支撑包，用户可以根据应用领域的特定算法快速建立自己的软硬协同的加速器开发项目。
 
 ###2.1 软硬协同的加速器结构组成
 OpenHEC项目支撑包面向FPGA SoC，当前版本主要支持Xilinx公司的Zynq系列芯片。Zynq系列芯片内包含通用的ARM处理器核心（PS部分）和FPGA可重构逻辑资源（PL部分），构成了典型的异构计算架构。Zynq系列处理器详细信息请参考Xilinx官方手册《DS190: Zynq-7000 All Programmable SoC Overview》。
 
 在上述架构的基础上，OpenHEC项目支撑包定义了一种通用的软硬件协同的加速器结构，如下图所示。
-<center>![图片](http://61.177.139.248:18080/OpenHEC/api/image/000020160425000000000003/37d3795ddcb39a1bc40b332c11c0b931.png)
-</center>
-<center>软硬协同的加速器结构</center>
+
 
 软硬协同加速器包括软件功能部分、定制的硬件加速器和软硬件接口三个部分：
 
@@ -56,9 +55,7 @@ OpenHEC项目支撑包面向FPGA SoC，当前版本主要支持Xilinx公司的Zy
 
 ###2.3 基于项目支撑包的加速器项目开发流程
 以下是基于OpenHEC项目支撑包的用户项目开发流程图。
-<center>![图片](http://61.177.139.248:18080/OpenHEC/api/image/000020160425000000000003/a82280fd8aca941f036b1e9441232a02.png)
-</center>
-<center>基于OpenHEC项目支撑包的软硬协同加速器开发流程</center>
+
 
 用户基于OpenHEC的项目开发过程中，可以遵循以下步骤：
 
@@ -103,9 +100,7 @@ OpenHEC项目支撑包支持两种加速器开发模式：IDE模式和shell模�
 
 - **IDE模式**
 建好代码文件后，在dev_proj目录下，执行make user_ip命令。该命令将基于src和tb目录下代码文件建立用户加速器IP设计的子工程，并打开Vivado HLS IDE环境，进入图形化开发界面。
-<center>![图片](http://61.177.139.248:18080/OpenHEC/api/image/000020160425000000000003/8ba669f1620e610ad45bfa8bd6b9b4c0.png)
-</center>
-<center>Vivado HLS IDE界面</center>
+
 
 Vivado HLS IDE使用方法请参考Xilinx官方用户手册《UG871: Vivado Design Suite Tutorial High-Level Synthesis》
 
@@ -142,9 +137,7 @@ user_accel包含以下四个主要部分：
 	加速器接口约束：对参数列表中的各个参数添加约束，使HLS工具能将其转换成指定协议的硬件接口。
 	加速器功能实现：该部分包含加速器功能所有实现，代码中支持函数的嵌套调用。
 
-<center>![图片](http://61.177.139.248:18080/OpenHEC/api/image/000020160425000000000003/f16772ac91cb2a8e538730dd098d6fdc.png)
-</center>
-<center>从user_accel函数到user_accel硬件IP模块</center>
+
 
 
 ###3.3 加速器IP的设计、开发和功能仿真
@@ -225,9 +218,7 @@ void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){
 
 完成加速器设计后，在IDE模式下点击综合按钮，或在Shell模式下执行make csynth，执行高层综合。综合完成后，自动生成加速器硬件逻辑并打包成IP的形式。同时，HLS工具会自动生成report文件。report中给出了加速器IP的性能（吞吐率和延迟）、资源开销、接口定义等信息。用户可以根据report，调整代码优化策略和修改编译指示，生成符合用户需求的加速器IP。
 
-<center>![图片](http://61.177.139.248:18080/OpenHEC/api/image/000020160425000000000003/e4b161633923b4a088816fbe8f75e1fd.png)
-</center>
-<center>高层综合后的加速器report示例</center>
+
 
 
 在Shell环境下，用户通过可以在`RELAXSoC_FlyxSOM/solution1/impl/report`目录下找到report文件。
