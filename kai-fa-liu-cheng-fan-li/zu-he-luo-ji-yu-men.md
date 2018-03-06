@@ -14,6 +14,8 @@
 
 * 4输入与门IP核\(**OpenHEC\_user\_and4in\_logic\_1.0**\)
 
+  ---
+
 #### 二、使用虚拟机
 
 1. ##### 新建用户逻辑工程
@@ -87,15 +89,23 @@
 
    ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 Tools/Run Tcl Script，选择文件夹oLib/RELAX\_FlyxSOM/tcl 下的relax\_syn\_imp\_flow.tcl文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹proj\_ip/and4in\_proj下。![](/assets/gbit001.png)
+   ##### OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 Tools/Run Tcl Script，选择文件夹oLib/RELAX\_FlyxSOM/tcl 下的relax\_syn\_imp\_flow.tcl文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹proj\_ip/and4in\_proj下。![](/assets/gbit001.png)
 
    ---
-
 7. ##### 完成开发
 
    拷贝桌面文件夹proj\_ip/and4in\_proj下的位流文件and4in\_proj.bit 到oDisk目录，完成开发。![](/assets/cpodsik001.png)
 
+   ---
+
 #### 三、使用FPGA
+
+完成了FPGA的开发后，用户既可以在OpenHEC部署在云端的FPGA硬件上验证与门的bit文件了。
+
+1. ##### 配置比特流到FPGA
+
+   ##### 
+2. ##### IO实时监控
 
 
 
