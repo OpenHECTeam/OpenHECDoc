@@ -93,9 +93,7 @@
 
 7. ##### 完成开发
 
-   拷贝桌面文件夹proj\_ip/and4in\_proj下的位流文件and4in\_proj.bit 到oDisk目录，完成开发。
-
-
+   拷贝桌面文件夹proj\_ip/and4in\_proj下的位流文件and4in\_proj.bit 到oDisk目录，完成开发。![](/assets/cpodsik001.png)
 
 #### 三、使用FPGA
 
