@@ -179,59 +179,40 @@ testbench文件也是普通的C、C++代码文件，但必须放在src/tb目录�
 * **添加接口约束**
 
   当前版本的OpenHEC项目支撑包提供两个32位AXI总线接口，一个是32位的AXI4接口，支持burst类型数据传输；另一个是32位的AXI4 Lite接口，仅支持单个总线事务传输，主要用于性能要求不高的场景，如IP的运行时参数配置。下面是接口约束的一个简单示例。
-  
+
   ```HLS
-  
-  `void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){`
-
-  `//加速器接口约束`
-
-  `//HP inteface(axi4 master)`
-
-  `#pragma HLS INTERFACE m_axi port = param1 offset = slave bundle = user_axi register`
-
-  `#pragma HLS INTERFACE s_axilite port = param1 bundle = user_axi4lite register`
-
-  `//GP interface(axi4lite slave)`
-
-  `#pragma HLS INTERFACE s_axilite port = param2bundle = user_axi4lite register`
-
-  `#pragma HLS INTERFACE s_axilite port =param3 bundle = user_axi4lite register`
-
-  `#pragma HLS INTERFACE s_axilite port = param4 bundle = user_axi4lite register`
-
-  `……`
-
-  `#pragma HLS INTERFACE s_axilite port =paramN bundle = user_axi4lite register`
-
-  `#pragma HLS INTERFACE s_axilite port = addr_reserved offset = 0xFFF0 bundle = user_axi4lite register`
-
-  `#pragma HLS INTERFACE s_axilite port = return bundle = user_axi4lite register`
-
-  `//加速器功能代码`
-
-  `}`
+  void user_accel(TYPE1 param1, TYPE2 param2, …. , TYPE3 paramN){
+      //加速器接口约束
+      //HP inteface(axi4 master)
+      #pragma HLS INTERFACE m_axi port = param1 offset = slave bundle = user_axi register
+      #pragma HLS INTERFACE s_axilite port = param1 bundle = user_axi4lite register
+      //GP interface(axi4lite slave)
+      #pragma HLS INTERFACE s_axilite port = param2bundle = user_axi4lite register
+      #pragma HLS INTERFACE s_axilite port =param3 bundle = user_axi4lite register
+      #pragma HLS INTERFACE s_axilite port = param4 bundle = user_axi4lite register`
+      ……
+      #pragma HLS INTERFACE s_axilite port =paramN bundle = user_axi4lite register
+      #pragma HLS INTERFACE s_axilite port = addr_reserved offset = 0xFFF0 bundle = user_axi4lite register
+      #pragma HLS INTERFACE s_axilite port = return bundle = user_axi4lite register
+      //加速器功能代码
+  }
   ```
 
   每一条接口约束均以\#pragma关键词开头。OpenHEC项目支撑包预定义了两个AXI类的总线接口，分别为user\_axi和user\_axi4lite。前者是32位的AXI4类型接口，后者是32位的AXI4 Lite类型接口。
 
+  第一部分是user\_axi接口约束，包含两条语句。语句\#pragma HLS INTERFACE m\_axi port = param1 offset = slave bundle = user\_axi register表示，参数param1被指定为m\_axi类型接口，接口名为user\_axi，用于加速器与内存之间的批量数据访问。访问内存的时候需要制定访存起始地址，语句\#pragma HLS INTERFACE s\_axilite port = param1 bundle = user\_axi4lite register表示，将param1基地址配置接口寄存器添加到user\_axi4lite接口中，运行时可以通过user\_axi4lite接口动态地对访存基地址进行配置。
 
+  第二部分是user\_axi4lite接口约束。通过N-1条语句，将param2至paramN参数作为接口寄存器添加到user\_axi4lite接口，因此接口名均为user\_axi4lite。语句\#pragma HLS INTERFACE s\_axilite port = addr\_reserved offset = 0xFFF0 bundle = user\_axi4lite register的作用是指定地址边界，帮助HLS工具生成32位地址信号的总线接口。对于param2到paramN，用户可以在接口约束中手工指定各个接口寄存器的偏移地址，也可以交由工具自动分配。
 
-每一条接口约束均以\#pragma关键词开头。OpenHEC项目支撑包预定义了两个AXI类的总线接口，分别为user\_axi和user\_axi4lite。前者是32位的AXI4类型接口，后者是32位的AXI4 Lite类型接口。
+  根据上面的接口约束示例，用户需要只根据自己的函数参数列表，修改param1到paramN的接口约束语句，定义满足自己加速器设计要求的IP接口。
 
-第一部分是user\_axi接口约束，包含两条语句。语句\#pragma HLS INTERFACE m\_axi port = param1 offset = slave bundle = user\_axi register表示，参数param1被指定为m\_axi类型接口，接口名为user\_axi，用于加速器与内存之间的批量数据访问。访问内存的时候需要制定访存起始地址，语句\#pragma HLS INTERFACE s\_axilite port = param1 bundle = user\_axi4lite register表示，将param1基地址配置接口寄存器添加到user\_axi4lite接口中，运行时可以通过user\_axi4lite接口动态地对访存基地址进行配置。
+  完成接口约束后，user\_accel函数的各个参数将被映射到对应的硬件接口。图中左侧为user\_accel函数，高层综合后生成右侧的user\_accel硬件IP模块。其中，蓝色文字为接口信号，包括时钟、复位等控制信号，以及两个AXI总线接口。user\_accel函数参数对应到user\_axi和user\_axi4lite两个AXI总线接口。红色文字部分为user\_axi4lite接口的接口寄存器列表。软件在运行时通过访问user\_axi4lite接口的寄存器来配置加速器IP。user\_axi接口由加速器内部使用，用于读写共享内存中的数据。
 
-第二部分是user\_axi4lite接口约束。通过N-1条语句，将param2至paramN参数作为接口寄存器添加到user\_axi4lite接口，因此接口名均为user\_axi4lite。语句\#pragma HLS INTERFACE s\_axilite port = addr\_reserved offset = 0xFFF0 bundle = user\_axi4lite register的作用是指定地址边界，帮助HLS工具生成32位地址信号的总线接口。对于param2到paramN，用户可以在接口约束中手工指定各个接口寄存器的偏移地址，也可以交由工具自动分配。
+  关于接口约束的更详细说明请参考Xilinx官方手册《UG902: Vivado Design Suite User Guide High-Level Synthesis》
 
-根据上面的接口约束示例，用户需要只根据自己的函数参数列表，修改param1到paramN的接口约束语句，定义满足自己加速器设计要求的IP接口。
+* **代码优化和编译指示**
 
-完成接口约束后，user\_accel函数的各个参数将被映射到对应的硬件接口。图中左侧为user\_accel函数，高层综合后生成右侧的user\_accel硬件IP模块。其中，蓝色文字为接口信号，包括时钟、复位等控制信号，以及两个AXI总线接口。user\_accel函数参数对应到user\_axi和user\_axi4lite两个AXI总线接口。红色文字部分为user\_axi4lite接口的接口寄存器列表。软件在运行时通过访问user\_axi4lite接口的寄存器来配置加速器IP。user\_axi接口由加速器内部使用，用于读写共享内存中的数据。
-
-关于接口约束的更详细说明请参考Xilinx官方手册《UG902: Vivado Design Suite User Guide High-Level Synthesis》
-
-#### 3.4.2 代码优化和编译指示
-
-为了达到更好的性能，需要对访存、循环迭代等核心代码进行优化设计，并针对不同的硬件结构实现目标对代码设置编译指示。代码优化和编译指示设置的详细方法请参考Xilinx官方用户手册《UG902: Vivado Design Suite User Guide High-Level Synthesis》
+  为了达到更好的性能，需要对访存、循环迭代等核心代码进行优化设计，并针对不同的硬件结构实现目标对代码设置编译指示。代码优化和编译指示设置的详细方法请参考Xilinx官方用户手册《UG902: Vivado Design Suite User Guide High-Level Synthesis》
 
 ##### 5 高层综合与IP生成
 
