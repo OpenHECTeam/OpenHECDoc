@@ -563,14 +563,10 @@
 
 1. 数码管原理
 一个数码管有八段：A、B、C、D、E、F 、G、H、DP，即由八个发光二极管组成,如图2所示。
-<center>![图片](http://61.177.139.248:18080/OpenHEC//api/ExperimentService/MDimages/c116e3cddc3985166d8aa20ae8a0da85.png)
- </center>
-<center>图2 数码管示意图</center>
+
 
 2. 发光二极管导通的方向是一定的，这八个发光二极管的公共端有两种：可分共阳极（公共端接高电平或+5V电压）和共阴极（共低电平或接地）两种数码管。教学板卡中采用的是共阳极数码管的接法，其原理图如图3所示。
-<center>![图片](http://61.177.139.248:18080/OpenHEC//api/ExperimentService/MDimages/12d8d018ab27e26ca8e491af506b0be4.png)
- </center>
-<center>图3 共阳极数码管原理图</center>
+
 
 共阳极数码管编码
 1. 共阳极数码位选信号（如图4.3中的`DIG1`和`DIG2`）选为高电平时（即1）选中数码管，各段（如图3中的`A`、`B`、`C`、`D`、`E`、`F` 、`G`、`H`和`DP`）选为低电平时（即0）选中各数码管。
@@ -598,22 +594,16 @@
 
 六、 点阵LED
 
-###6.1 点阵 LED原理
+ 点阵 LED原理
 1. 图4所示的为8x8点阵LED示意图，其主要分为共阳和共阴两种，一般是根据点阵第一个引脚的极性所定义的，第一个引脚为阳极则为共阳，反之则为共阴。
-<center>![图片](http://61.177.139.248:18080/OpenHEC//api/ExperimentService/MDimages/d1ac68349ebff59899268fe48ef73487.png)
-</center>
-<center>图4  8x8点阵LED示意图</center>
+
 
 2. 8x8点阵LED的行列定义如图5所示。
-<center>![图片](http://61.177.139.248:18080/OpenHEC//api/ExperimentService/MDimages/0c08845b67c1c610589ec1ecceb8d8f0.png)
-</center>
-<center>图5  8x8点阵LED 行列定义</center>
 
-###6.2 8x8共阳点阵 LED
+
+ 8x8共阳点阵 LED
 1. 实验中教学板卡采用的是共阳极的连接（即行共阳），其原理图如图6所示。
-<center>![图片](http://61.177.139.248:18080/OpenHEC//api/ExperimentService/MDimages/7ac55a3fced98b196ced79fe057400df.png)
-</center>
-<center>图6  行共阳8x8点阵LED 原理图</center>
+
 
 2. 当列中的PIN脚为低电平时（即PIN13、PIN3、PIN4、PIN10、PIN6、PIN11、PIN15和PIN16），选中PIN脚所在的列；当行中的PIN脚为高电平时（即PIN9、PIN14、PIN8、PIN12、PIN1、PIN7、PIN2和PIN5），选中PIN脚所在的行；只有当行中和列中的PIN脚同时被选中十才能点亮相应LED点。
 
