@@ -98,12 +98,12 @@ module d_flipflop_logic
 5. ##### 用户逻辑与实验支撑包的接口绑定
 
    打开**and4in\_bd\_wrapper.v**文件，拷贝and4in\_bd中的管脚绑定。
+   
+   打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。
 
-打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。
+   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。参考代码如下：
 
-根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。参考代码如下：
-
-1. ```
+	```
    //assign LED30 = SW30;
    //assign LED31 = SW31;
 
@@ -117,15 +117,15 @@ module d_flipflop_logic
     );
    ```
 
-1. ---
+---
 
-   ##### 综合与实现
+6. ##### 综合与实现
 
    OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/and4in\_proj**下。![](/assets/gbit001.png)
 
    ---
 
-2. ##### 完成开发
+7. ##### 完成开发
 
    拷贝桌面文件夹**proj\_ip/and4in\_proj**下的位流文件**and4in\_proj.bit** 到oDisk目录，完成开发。![](/assets/cpodsik001.png)
 
