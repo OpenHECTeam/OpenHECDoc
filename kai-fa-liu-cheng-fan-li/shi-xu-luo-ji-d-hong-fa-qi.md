@@ -77,9 +77,9 @@ module d_flipflop_logic
 
    ，点击**OK**。
 
-   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**flipflop**选择IP，确认即可在Diagram界面出现这个IP 。点击实验模块端口（如 A ），右击选择**Make External**，引出所有端口。![](/assets/ba9665b76e123387eed2804878427436.png)
+   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**flipflop**选择IP，确认即可在Diagram界面出现这个IP 。点击实验模块端口（如 A ），右击选择**Make External**，引出所有端口。![](/assets/flipflop_bd.png)
 
-   在**Flow Navigator**选项卡选择**Generate Block Design**，在弹出的窗口中选择**Generate**，完成原理图设计。
+   在**Flow Navigator/IP Integrator**选项卡选择**Generate Block Design**，在弹出的窗口中选择**Generate**，完成原理图设计。
 
    在**Source/Hierarchy**选项卡中，右击**Design Source**中的bd文件（如本实验中的and4in\_bd.bd），选择**Create HDL Wrapper**, 弹出**Create HDL Wrapper**对话框，选择**Copy generated wrapper to allow user\_edits**，点击**OK**。
 
@@ -119,11 +119,11 @@ module d_flipflop_logic
 
 6. ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/and4in\_proj**下。![](/assets/gbit001.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/flipflop\_proj**下。
 
 7. ##### 完成开发
 
-   拷贝桌面文件夹**proj\_ip/and4in\_proj**下的位流文件**and4in\_proj.bit** 到oDisk目录，完成开发。![](/assets/cpodsik001.png)
+   拷贝桌面文件夹**proj\_ip/and4in\_proj**下的位流文件**and4in\_proj.bit** 到oDisk目录，完成开发。
 
 #### 三、使用FPGA
 
