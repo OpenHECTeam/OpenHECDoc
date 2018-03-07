@@ -16,7 +16,38 @@
 
 实验中的D触发器IP核的verilog代码如下：
 
-
+```
+module d_flipflop_logic
+(
+    input   wire    clk,
+    input   wire    reset,
+    input   wire    set,
+    input   wire    d,
+    output  reg     q,
+    output  reg     qn 
+ );
+ always @(posedge clk)
+ begin
+    //同步清0，高有效
+    if(reset) 
+        begin
+            q <= 1'b0;
+            qn <= 1'b1;
+        end
+    //同步置1，高有效
+    else if(set)
+        begin
+            q  <= 1'b1;
+            qn <= 1'b0;
+        end
+    else
+        begin
+            q <= ~d;
+            qn <= ~d;
+        end
+  end
+  endmodule;
+```
 
 #### 二、使用虚拟机
 
@@ -42,17 +73,17 @@
 
 3. ##### Vivado框图设计
 
-   在**Flow Navigator/IP Integrator**选项卡下选择**Create Block Design**，在弹出的窗口中输入一个设计名，这里输入**and4in\_bd**
+   在**Flow Navigator/IP Integrator**选项卡下选择**Create Block Design**，在弹出的窗口中输入一个设计名，这里输入**flipflop\_bd**
 
-   ，点击**OK**。![](/assets/cbd001.png)
+   ，点击**OK**。
 
-   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**and4in**选择IP，确认即可在Diagram界面出现这个IP 。![](/assets/a47496d635eaf9220e5f17b5af18f8d9.png)
+   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**flipflop**选择IP，确认即可在Diagram界面出现这个IP 。
 
    点击实验模块端口（如 A ），右击选择**Make External**，引出所有端口。![](/assets/ba9665b76e123387eed2804878427436.png)
 
    在**Flow Navigator**选项卡选择**Generate Block Design**，在弹出的窗口中选择**Generate**，完成原理图设计。
 
-   在**Source/Hierarchy**选项卡中，右击**Design Source**中的bd文件（如本实验中的and4in\_bd.bd），选择**Create HDL Wrapper**, 弹出**Create HDL Wrapper**对话框，选择**Copy generated wrapper to allow user\_edits**，点击**OK**。![](/assets/0d597b7274e841a0d3352313bf71e1fa.png)
+   在**Source/Hierarchy**选项卡中，右击**Design Source**中的bd文件（如本实验中的and4in\_bd.bd），选择**Create HDL Wrapper**, 弹出**Create HDL Wrapper**对话框，选择**Copy generated wrapper to allow user\_edits**，点击**OK**。
 
    ---
 
