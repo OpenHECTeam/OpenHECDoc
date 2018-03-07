@@ -104,31 +104,26 @@ module d_flipflop_logic
    根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。参考代码如下：
 
    ```verilog
-   //assign LED30 = SW30;
-   //assign LED31 = SW31;
-
-   and4in_bd_wrapper user_wrapper_top_uut
-    (
-        .A(SW00),
-        .B(SW01),
-        .C(SW02),
-        .D(SW03),
-        .F(LED00)
-    );
-
+       //assign LED30 = SW30;
+       //assign LED31 = SW31;
+       user_wrapper_top user_wrapper_top_uut
+       (
+           .clk(step_clk),
+           .reset(lab_reset),
+           .set(SW30),
+           .d(SW31),
+           .q(LED30),
+           .qn(LED31)
+       );
    ```
 
-综合与实
+6. ##### 综合与实现
 
-OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/and4in\_proj**下。![](/assets/gbit001.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/and4in\_proj**下。![](/assets/gbit001.png)
 
----
-
-1. ##### 完成开发
+7. ##### 完成开发
 
    拷贝桌面文件夹**proj\_ip/and4in\_proj**下的位流文件**and4in\_proj.bit** 到oDisk目录，完成开发。![](/assets/cpodsik001.png)
-
-   ---
 
 #### 三、使用FPGA
 
