@@ -39,6 +39,6 @@
     * [Verilog](zhi-shi-dian/yu-yan-lei/hdl.md)
     * HLS
   * [课程类](zhi-shi-dian/ke-cheng-lei.md)
-  * 技能类
+  * [技能类](zhi-shi-dian/ji-neng-lei.md)
 * [常见问题](chang-jian-wen-ti.md)
 
