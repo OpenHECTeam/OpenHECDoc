@@ -32,19 +32,13 @@
 
    从**oLib**中拷贝与门的IP核 **OpenHEC\_user\_and4in\_logic\_1.0.zip**到桌面文件夹**proj\_ip **`里面。`
 
-   在左侧菜单**Flow Navigator/Project Manager**`，`选项卡下点击**IP Catalog**`，`在窗口选择**IP Setting**`，`弹出**Project Setting**
-
-   窗口，在`IP`选项卡，通过**+**添加**IP Repositories**，选择桌面文件夹**proj\_ip**目录，然后在**IP in Selected Repository**
-
-   选择需要用到的IP\(即**OpenHEC\_user\_and4in\_logic\_1.0.zip**\) ，完成后点击下方**Apply**，然后点击**OK**。![](/assets/addand4in_ip.png)
+   在左侧菜单**Flow Navigator/Project Manager**`，`选项卡下点击**IP Catalog**`，`在窗口选择**IP Setting**`，`弹出**Project Setting**窗口，在`IP`选项卡，通过**+**添加**IP Repositories**，选择桌面文件夹**proj\_ip**目录，然后在**IP in Selected Repository**，选择需要用到的IP\(即**OpenHEC\_user\_and4in\_logic\_1.0.zip**\) ，完成后点击下方**Apply**，然后点击**OK**。![](/assets/addand4in_ip.png)
 
    ---
 
 3. ##### Vivado框图设计
 
-   在**Flow Navigator/IP Integrator**选项卡下选择**Create Block Design**，在弹出的窗口中输入一个设计名，这里输入**and4in\_bd**
-
-   ，点击**OK**。![](/assets/cbd001.png)
+   在**Flow Navigator/IP Integrator**选项卡下选择**Create Block Design**，在弹出的窗口中输入一个设计名，这里输入**and4in\_bd**，点击**OK**。![](/assets/cbd001.png)
 
    在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**and4in**选择IP，确认即可在Diagram界面出现这个IP 。![](/assets/a47496d635eaf9220e5f17b5af18f8d9.png)
 
@@ -58,7 +52,11 @@
 
 4. ##### 添加OpenHEC实验平台顶层文件
 
-   设计完用户区逻辑后，接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。![](/assets/addtop001.png)
+   设计完用户区逻辑后，接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
+
+   在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。
+
+   选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。![](/assets/addtop001.png)
 
    ---
 
