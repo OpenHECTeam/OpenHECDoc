@@ -77,9 +77,7 @@ module d_flipflop_logic
 
    ，点击**OK**。
 
-   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**flipflop**选择IP，确认即可在Diagram界面出现这个IP 。
-
-   点击实验模块端口（如 A ），右击选择**Make External**，引出所有端口。![](/assets/ba9665b76e123387eed2804878427436.png)
+   在生成的Diagram界面中，选择**添加IP**按钮，在弹出的窗口中输入**flipflop**选择IP，确认即可在Diagram界面出现这个IP 。点击实验模块端口（如 A ），右击选择**Make External**，引出所有端口。![](/assets/ba9665b76e123387eed2804878427436.png)
 
    在**Flow Navigator**选项卡选择**Generate Block Design**，在弹出的窗口中选择**Generate**，完成原理图设计。
 
@@ -89,7 +87,11 @@ module d_flipflop_logic
 
 4. ##### 添加OpenHEC实验平台顶层文件
 
-   设计完用户区逻辑后，接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。![](/assets/addtop001.png)
+   设计完用户区逻辑后，接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
+
+   在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。
+
+   选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。
 
    ---
 
@@ -97,14 +99,15 @@ module d_flipflop_logic
 
    打开**and4in\_bd\_wrapper.v**文件，拷贝and4in\_bd中的管脚绑定。
 
-   ![](/assets/and4bd001.png)
 
-   打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。![](/assets/top001.png)
+
+   打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。
 
    根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。实验输入端口绑定，4个1-bit的输入信号（A, B, C, D），这里可以绑定到开关SW00, SW01, SW02, SW03上。实验输出端口绑定，1个1-bit的输出信号（F），绑定到LED00上。在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。参考代码如下：
 
    1. ```
-      //assign LED00 = SW00; 
+      //assign LED30 = SW30;
+      //assign LED31 = SW31;
 
       and4in_bd_wrapper user_wrapper_top_uut
        (
