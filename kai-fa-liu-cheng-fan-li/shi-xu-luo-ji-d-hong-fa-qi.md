@@ -101,7 +101,7 @@ module d_flipflop_logic
 
    打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 **flipflop\_bd\_wrapper** 。
 
-   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。  参考代码如下：
+   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。IO输入端口绑定，时钟**clk**和复位**reset**分别绑定到单步时钟**step\_clk**和复位信号**lab\_reset**上; 2个1-bit的输入信号（**set**,  **d**），这里可以绑定到开关**SW30**, **SW31**上。   IO输出端口绑定，2个1-bit的输出信号（**q**, **qn**），绑定到**LED30**, **LED31**上。   在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了**LED30**和**LED31**管脚，因此需要加‘//’注释掉LED30和LED31的初始赋值。  参考代码如下：
 
    ```verilog
        //assign LED30 = SW30;
@@ -119,11 +119,11 @@ module d_flipflop_logic
 
 6. ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/flipflop\_proj**下。
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/flipflop\_proj**下。![](/assets/genbit002.png)
 
 7. ##### 完成开发
 
-   拷贝桌面文件夹**proj\_ip/and4in\_proj**下的位流文件**and4in\_proj.bit** 到oDisk目录，完成开发。
+   拷贝桌面文件夹**proj\_ip/flipflop\_proj**下的位流文件**flipflop\_proj.bit** 到oDisk目录，完成开发。![](/assets/finishdev002.png)
 
 #### 三、使用FPGA
 
@@ -131,13 +131,15 @@ module d_flipflop_logic
 
 1. ##### 配置比特流到FPGA
 
-   点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的and4in\_proj.bit位流，同时选择纯FPGA模式的配置方式，点击配置即可以，如下图所示。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。![](/assets/genbit004.png)
+   点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的**flipflop\_proj.bit**位流，同时选择纯FPGA模式的配置方式，点击配置即可以。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。
 
 2. ##### IO实时监控
 
-   当输入开关A、B、 C、 D都置1时，输出信号灯F 才会点亮。![](/assets/and4in_001.png)
+   当复位信号置为1，其他输入信号set和d，不管置0或者置1；点击单步时钟，输出信号q始终为不亮，qn始终为亮，实现了同步清0的逻辑功能。![](/assets/flip001.png)
 
-   当输入开关A、B、 C、 D其中有一个置0时，输出信号灯F 都不亮。![](/assets/adn4in002.png)
+   当复位信号置为0，输入信号set置1时，d不管是置0或者置1；点击单步时钟，输出信号q始终亮，qn始终不亮，实现了同步置1的逻辑功能。![](/assets/flip002.png)
+
+   当复位信号置为0，输入信号set置0时；点击单步时钟，输出信号q和qn始终是输入信号d的取反值，实现了D触发器的逻辑功能。![](/assets/flip003.png)
 
 
 
