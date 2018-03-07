@@ -97,7 +97,7 @@ module d_flipflop_logic
 
 5. ##### 用户逻辑与实验支撑包的接口绑定
 
-   打开**and4in\_bd\_wrapper.v**文件，拷贝and4in\_bd中的管脚绑定。
+   打开**flipflop\_bd\_wrapper.v**文件，拷贝**flipflop\_bd**中的管脚绑定。
 
    打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 and4in\_bd\_wrapper。
 
@@ -106,7 +106,7 @@ module d_flipflop_logic
    ```verilog
        //assign LED30 = SW30;
        //assign LED31 = SW31;
-       user_wrapper_top user_wrapper_top_uut
+       flipflop_bd_wrapper user_wrapper_top_uut
        (
            .clk(step_clk),
            .reset(lab_reset),
