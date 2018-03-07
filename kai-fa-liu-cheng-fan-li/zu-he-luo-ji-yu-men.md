@@ -10,7 +10,7 @@
 
 实验资料**oLib**目录中主要资料如下。
 
-* 纯FPGA模式下的RELAX\_FlyxSOM实验支撑包
+* [纯FPGA模式下的RELAX\_FlyxSOM实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)
 
 * 4输入与门IP核\(**OpenHEC\_user\_and4in\_logic\_1.0**\)
 
