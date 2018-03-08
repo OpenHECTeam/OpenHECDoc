@@ -55,7 +55,7 @@
 
    打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 **flipflop\_bd\_wrapper** 。
 
-   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。IO输入端口绑定，时钟**clk**和复位**reset**分别绑定到单步时钟**step\_clk**和复位信号**lab\_reset**上; 2个1-bit的输入信号（**set**,  **d**），这里可以绑定到开关**SW30**, **SW31**上。  
+   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，  
    IO输出端口绑定，2个1-bit的输出信号（**q**, **qn**），绑定到**LED30**, **LED31**上。  
    在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了**LED30**和**LED31**管脚，因此需要加‘//’注释掉LED30和LED31的初始赋值。  参考代码如下：
 
