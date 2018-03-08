@@ -139,11 +139,11 @@
 
 4. ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/rom\_proj**下。![](/assets/syn003.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/ram\_proj**下。
 
 5. ##### 完成开发
 
-   拷贝桌面文件夹**proj\_ip/rom\_proj**下的位流文件**rom\_proj.bit** 到oDisk目录，完成开发。
+   拷贝桌面文件夹**proj\_ip/ram\_proj**下的位流文件**ram\_proj.bit** 到oDisk目录，完成开发。
 
 ---
 
