@@ -45,7 +45,7 @@
 
 1. ##### 新建用户逻辑工程
 
-   启动vivado 2015.2后，选择**Create New Project**，点击**Next**，输入项目名为**rom\_proj**和项目位置新建在桌面下的**proj\_ip**文件夹。
+   启动vivado 2015.2后，选择**Create New Project**，点击**Next**，输入项目名为**ram\_proj**和项目位置新建在桌面下的**proj\_ip**文件夹。
 
    点击**Next**，在**Project Type**选项里，将**Do not specify source at this time**勾选上。
 
@@ -61,23 +61,80 @@
 
    选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。
 
-3. ##### 用户逻辑与实验支撑包的接口绑定
+3. ##### 用户逻辑与[实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)的接口绑定
 
-   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，在用户逻辑区，片上ROM接口预留了地址线和数据线，仅提供了读功能，采用组合逻辑的读取方式，地址线inst\_addr一旦更新值，数据线inst\_data便会更新当前的数据值。因此只需要在实验顶层文件中，与支撑包绑定相应的接口即可。
-
-   片上ROM接口地址线端口绑定，32位地址线\`inst\_addr\`直接绑定到32-bit输入寄存器上\`R32IN0\`。  
-   片上ROM接口数据线端口绑定，32位数据线\`inst\_data\`直接绑定到32-bit输出寄存器上\`R32OUT0\`。  
-   在系统注释区域注释掉用户逻辑区绑定的IO输出端口及系统预留用户调用模块。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。
-
-   参考代码如下：
+   RAM时钟ram\_clk和复位信号ram\_rst的接口绑定，参考代码如下：
 
    ```verilog
-   assign inst_addr = R32IN0;
-   assign R32OUT0 = inst_data;
-   //assign R32OUT0 = R32IN0;
-   /*user_wrapper_top user_wrapper_top_uut
-   (
-   );*/
+    //RAM CLK AND RESET
+    assign ram_clk = step_clk;
+    assign ram_rst = lab_reset;
+   ```
+
+   片外RAM0存储接口绑定，参考代码如下：
+
+   ```verilog
+    //RAM0 Read Channel
+    assign ram0_raddr = R32IN1;
+    assign R32OUT1 = ram0_rdata;
+    assign ram0_ren = SW00;
+    assign LED00 = ram0_rvalid;
+    //RAM0 Write Channl
+    assign ram0_waddr = R32IN2;
+    assign ram0_wdata = R32IN3;
+    assign ram0_wen = SW01;
+    assign ram0_sel = R8IN0[3:0];
+    assign LED01 = ram0_wready;
+   ```
+
+   片外RAM1存储接口绑定，参考代码如下：
+
+   ```verilog
+    //RAM1 Read Channel
+    assign ram1_raddr = R32IN4;
+    assign R32OUT2 = ram1_rdata;
+    assign ram1_ren = SW02;
+    assign LED02 = ram1_rvalid;
+    //RAM1 Write Channl
+    assign ram1_waddr = R32IN5;
+    assign ram1_wdata = R32IN6;
+    assign ram1_wen = SW03;
+    assign ram1_sel = R8IN1[3:0];
+    assign LED03 = ram1_wready;
+   ```
+
+   在系统注释区域注释掉用户逻辑区绑定的IO输出端口及系统预留用户调用模块。参考代码如下：
+
+   ```verilog
+   //RAM0 Read Interface
+    //assign    ram0_ren = 1'b0;
+    //assign    ram0_raddr = 32'b0;    
+    //RAM0 Write Interface
+    //assign    ram0_waddr = 32'b0;
+    //assign    ram0_wen = 1'b0;
+    //assign    ram0_sel = 4'b0000;
+    //assign    ram0_wdata = 32'b0;
+    //RAM1 Read Interface
+    //assign    ram1_ren = 1'b0;
+    //assign    ram1_raddr = 32'b0;
+    //RAM1 Write Interface
+    //assign    ram1_waddr = 32'b0;
+    //assign    ram1_wen = 1'b0;
+    //assign    ram1_sel = 4'b0000;
+    //assign    ram1_wdata = 32'b0;
+    //RAM CLK AND RESET
+    //assign ram_clk = step_clk;
+    //assign ram_rst = 1'b1;
+    //assign    LED00 = SW00;
+    //assign    LED01 = SW01;
+    //assign    LED02 = SW02;
+    //assign    LED03 = SW03;
+    //assign R32OUT0 = R32IN0;
+    //assign R32OUT1 = R32IN1;
+    //assign R32OUT2 = R32IN2;
+    /*user_wrapper_top user_wrapper_top_uut
+    (
+    );*/
    ```
 
 4. ##### 综合与实现
