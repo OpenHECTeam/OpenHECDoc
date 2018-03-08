@@ -1,52 +1,30 @@
 ### [片上ROM存储接口](http://www.iopenhec.com/#!/experiment/000020170413000000000004)
 
-时序逻辑D触发器是基于虚拟面板做时序逻辑的入门实验：带同步清0、同步置1的D触发器，是在纯FPGA模式下使用[RELAX\_FlyxSOM](http://www.iopenhec.com/#!/app/forum/topics/2332)实验支撑包来进行开发的。
+片上ROM存储接口是OpenHEC平台上纯FPGA模式下实验支撑包预留的片上ROM资源，下面介绍在平台上如何使用ROM存储接口做访存相关的实验。
 
 #### 一、开发入口
 
-时序逻辑D触发器的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000002](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
+片上ROM存储接口的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000004](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
-时序逻辑D触发器采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
+片上ROM存储接口采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
 
 实验资料**oLib**目录中主要资料如下。
 
 * [纯FPGA模式下的RELAX\_FlyxSOM实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)
 
-* D触发器IP核\(**OpenHEC\_user\_d\_flipflop\_logic\_1.0**\)
-
-实验中的D触发器IP核的verilog代码如下：
+实验支撑包中预留片上ROM接口，ROM的数据线为32位，地址线为32位，其大小为2KB。OpenHEC平台上FPGA实验环境的写存储和读存储页面可以进行片上ROM读写验证，其访存的地址范围为0x40000000-0x400007ff。用户实验逻辑访问读取片内ROM接口的地址范围为0x00000000 - 0x000007ff，实验支撑包顶层verilog接口定义如下：
 
 ```verilog
-module d_flipflop_logic
-(
-    input   wire    clk,
-    input   wire    reset,
-    input   wire    set,
-    input   wire    d,
-    output  reg     q,
-    output  reg     qn 
- );
- always @(posedge clk)
- begin
-    //同步清0，高有效
-    if(reset) 
-        begin
-            q <= 1'b0;
-            qn <= 1'b1;
-        end
-    //同步置1，高有效
-    else if(set)
-        begin
-            q  <= 1'b1;
-            qn <= 1'b0;
-        end
-    else
-        begin
-            q <= ~d;
-            qn <= ~d;
-        end
-  end
-  endmodule;
+    /*
+     *   Instruction ROM Interface 
+     *
+     *   32-bit Address     
+     *      BaseAddr = 0x40000000
+     *     HighAddr = 0x400007ff
+     *   Size     =  2K
+     */
+    output   wire    [31: 0]    inst_addr,
+    input    wire    [31: 0]    inst_data,
 ```
 
 #### 二、使用虚拟机
@@ -101,8 +79,8 @@ module d_flipflop_logic
 
    打开**OpenHEC\_Exp\_Top.v**文件，找到用户自定义顶层module实例化区域，粘贴and4in\_bd中拷贝的IO管脚绑定, 并重新命名模块的名字为 **flipflop\_bd\_wrapper** 。
 
-   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。IO输入端口绑定，时钟**clk**和复位**reset**分别绑定到单步时钟**step\_clk**和复位信号**lab\_reset**上; 2个1-bit的输入信号（**set**,  **d**），这里可以绑定到开关**SW30**, **SW31**上。
-   IO输出端口绑定，2个1-bit的输出信号（**q**, **qn**），绑定到**LED30**, **LED31**上。
+   根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，选择相应的IO管脚绑定。IO输入端口绑定，时钟**clk**和复位**reset**分别绑定到单步时钟**step\_clk**和复位信号**lab\_reset**上; 2个1-bit的输入信号（**set**,  **d**），这里可以绑定到开关**SW30**, **SW31**上。  
+   IO输出端口绑定，2个1-bit的输出信号（**q**, **qn**），绑定到**LED30**, **LED31**上。  
    在系统注释区域注释掉用户逻辑区绑定的IO输出端口。这里绑定了**LED30**和**LED31**管脚，因此需要加‘//’注释掉LED30和LED31的初始赋值。  参考代码如下：
 
    ```verilog
