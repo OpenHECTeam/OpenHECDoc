@@ -1,12 +1,3 @@
-* [ ] |  |
-  | :--- |
-
-### $$x = y$$$$x = y$$
-
-|  |
-| :--- |
-|  |
-
 ### [片上ROM存储接口](http://www.iopenhec.com/#!/experiment/000020170413000000000004)
 
 片上ROM存储接口是OpenHEC平台上纯FPGA模式下实验支撑包预留的片上ROM资源，下面介绍在平台上如何使用ROM存储接口做访存相关的实验。
@@ -128,7 +119,7 @@
 
    从OpenHEC平台FPGA实验环境下的虚拟面板对片上ROM进行写操作和读操作完成后，下一步试试监控用户逻辑区的ROM逻辑进行IO实时监控。
 
-   片内ROM存储接口是组合逻辑的访问模式。在R32寄存器输入输出，给片上ROM接口的地址线inst\_addr中输入地址信息,观察数据线inst\_data的实时变化状态。![](/assets/iorom0001.png)![](/assets/iorom0002.png)  
+   片内ROM存储接口是组合逻辑的访问模式。在R32寄存器输入输出，给片上ROM接口的地址线inst\_addr中输入地址信息,观察数据线inst\_data的实时变化状态。![](/assets/iorom0001.png)![](/assets/iorom0002.png)
 
    ![](/assets/iorom0003.png)
 
