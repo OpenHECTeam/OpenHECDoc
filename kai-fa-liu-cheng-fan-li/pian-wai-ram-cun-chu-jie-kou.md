@@ -108,8 +108,7 @@
    ```verilog
    //RAM0 Read Interface
     //assign    ram0_ren = 1'b0;
-    //assign    ram0_raddr = 32'b0;    
-    //RAM0 Write Interface
+    //assign    ram0_raddr 、、
     //assign    ram0_waddr = 32'b0;
     //assign    ram0_wen = 1'b0;
     //assign    ram0_sel = 4'b0000;
