@@ -26,7 +26,7 @@
     * [基础配置](ying-jian/flyx-somji-chu-pei-zhi/ji-chu-pei-zhi.md)
     * [快速体验](ying-jian/kuai-su-ti-yan.md)
       * [组合逻辑与门](ying-jian/kuai-su-ti-yan/zu-he-luo-ji-yu-men.md)
-      * 组合逻辑数码管
+      * [组合逻辑数码管](ying-jian/kuai-su-ti-yan/zu-he-luo-ji-shu-ma-guan.md)
     * [硬件支撑包](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao.md)
       * [RELAX\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.md)
       * [RELAX\_FlyxSOM\_LED7SEG](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.md)
