@@ -55,7 +55,9 @@
 
    根据[`RELAX_FlyxSOM`实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)解析说明，在用户逻辑区，片上ROM接口预留了地址线和数据线，仅提供了读功能，采用组合逻辑的读取方式，地址线inst\_addr一旦更新值，数据线inst\_data便会更新当前的数据值。因此只需要在实验顶层文件中，与支撑包绑定相应的接口即可。
 
-   片上ROM接口地址线端口绑定，32位地址线\`inst\_addr\`直接绑定到32-bit输入寄存器上\`R32IN0\`。   片上ROM接口数据线端口绑定，32位数据线\`inst\_data\`直接绑定到32-bit输出寄存器上\`R32OUT0\`。   在系统注释区域注释掉用户逻辑区绑定的IO输出端口及系统预留用户调用模块。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。
+   片上ROM接口地址线端口绑定，32位地址线\`inst\_addr\`直接绑定到32-bit输入寄存器上\`R32IN0\`。  
+   片上ROM接口数据线端口绑定，32位数据线\`inst\_data\`直接绑定到32-bit输出寄存器上\`R32OUT0\`。  
+   在系统注释区域注释掉用户逻辑区绑定的IO输出端口及系统预留用户调用模块。这里绑定了LED00管脚，因此需要加‘//’注释掉 LED00的初始赋值。
 
    参考代码如下：
 
@@ -70,11 +72,11 @@
 
 4. ##### 综合与实现
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/flipflop\_proj**下。
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/rom\_proj**下。
 
 5. ##### 完成开发
 
-   拷贝桌面文件夹**proj\_ip/flipflop\_proj**下的位流文件**flipflop\_proj.bit** 到oDisk目录，完成开发。
+   拷贝桌面文件夹**proj\_ip/rom\_proj**下的位流文件**rom\_proj.bit** 到oDisk目录，完成开发。
 
 #### 三、使用FPGA
 
