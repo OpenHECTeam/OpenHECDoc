@@ -13,8 +13,8 @@
     * [使用FPGA](yong-hu-kai-fa-liu-cheng/fpgaying-jian-yun.md)
   * [开发流程范例](kai-fa-liu-cheng-fan-li.md)
     * [组合逻辑与门](kai-fa-liu-cheng-fan-li/zu-he-luo-ji-yu-men.md)
-    * 时序逻辑D触发器
-    * 片上ROM存储接口
+    * [时序逻辑D触发器](kai-fa-liu-cheng-fan-li/shi-xu-luo-ji-d-hong-fa-qi.md)
+    * [片上ROM存储接口](kai-fa-liu-cheng-fan-li/pian-shang-rom-cun-chu-jie-kou.md)
     * 片外RAM存储接口
     * 组合逻辑数码管
     * 时序逻辑LED点阵
