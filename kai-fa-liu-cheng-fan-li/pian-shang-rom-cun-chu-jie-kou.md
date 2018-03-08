@@ -27,6 +27,8 @@
     input    wire    [31: 0]    inst_data,
 ```
 
+---
+
 #### 二、使用虚拟机
 
 1. ##### 新建用户逻辑工程
@@ -39,8 +41,6 @@
 
    点击**Next**，然后**Finish**完成项目的创建。
 
-   ---
-
 2. ##### 添加OpenHEC实验平台顶层文件
 
    设计完用户区逻辑后，接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
@@ -48,8 +48,6 @@
    在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。
 
    选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。
-
-   ---
 
 3. ##### 用户逻辑与实验支撑包的接口绑定
 
@@ -77,6 +75,8 @@
 5. ##### 完成开发
 
    拷贝桌面文件夹**proj\_ip/rom\_proj**下的位流文件**rom\_proj.bit** 到oDisk目录，完成开发。
+
+---
 
 #### 三、使用FPGA
 
