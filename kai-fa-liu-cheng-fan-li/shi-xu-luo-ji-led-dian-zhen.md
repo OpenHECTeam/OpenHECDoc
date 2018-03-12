@@ -109,19 +109,7 @@ endmodule
 
 2. ##### IO实时监控
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)中数码管的编码规则，当输入开关DIG1、DIG2都置1时，从监控视频中可以观察到，数码管会显示字符。![](/assets/seg_panel0001.png)![](/assets/seg_led0002.png)
-
-3. ##### **数码管显示 0.0.**
-
-   ![](blob:file:///34ebe832-4ac7-4c3f-8cd5-7d70251bda67)![](blob:file:///f22ac639-a20c-4cd3-91de-81728ad20223)
-
-4. ##### **数码管显示 1.1.**
-
-   ![](blob:file:///0e5afef0-9f2d-405b-87e0-157b6a95d4e1)![](/assets/segshow0004.png)
-
-5. ##### **数码管显示 6.6.**
-
-   ![](/assets/segshow0005.png)![](/assets/segshow0007.png)
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)中数码管的编码规则，
 
 
 
