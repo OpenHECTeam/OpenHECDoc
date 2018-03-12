@@ -34,7 +34,7 @@
 
 3. **用户逻辑与实验支撑包的接口绑定**
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，数码管的管脚可以跟开关管脚一一绑定。
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，数码管的管脚可以跟开关管脚一一绑定。这里面没有调用用户IP核，因此需要注释掉实列化IP核模块的区域。
 
    ```verilog
    assign FlyxIO_seven_segment_a = SW00;
@@ -47,15 +47,19 @@
    assign FlyxIO_seven_segment_dp = SW07;
    assign FlyxIO_seven_segment_dig1 = SW08;
    assign FlyxIO_seven_segment_dig2 = SW09;
+    /*user_wrapper_top user_wrapper_top_uut
+    (
+    );*/
+
    ```
 
 4. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/flipflop\_proj**下。![](/assets/genbit002.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/seg\_proj**下。![](/assets/genbit002.png)
 
 5. **完成开发**
 
-   拷贝桌面文件夹**proj\_ip/flipflop\_proj**下的位流文件**flipflop\_proj.bit** 到oDisk目录，完成开发。![](/assets/finishdev002.png)
+   拷贝桌面文件夹**proj\_ip/seg\_proj**下的位流文件**seg\_proj.bit** 到oDisk目录，完成开发。![](/assets/finishdev002.png)
 
 ##### 
 
@@ -65,15 +69,13 @@
 
 1. ##### 配置比特流到FPGA
 
-   点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的**flipflop\_proj.bit**位流，同时选择纯FPGA模式的配置方式，点击配置即可以。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。
+   点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的**seg\_proj.bit**位流，同时选择纯FPGA模式的配置方式，点击配置即可以。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。
 
 2. ##### IO实时监控
 
-   当复位信号置为1，其他输入信号set和d，不管置0或者置1；点击单步时钟，输出信号q始终为不亮，qn始终为亮，实现了同步清0的逻辑功能。![](/assets/flip001.png)
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)中数码管的编码规则，当输入开关DIG1、DIG2都置1时，从监控视频中可以观察到，数码管会显示字符。
 
-   当复位信号置为0，输入信号set置1时，d不管是置0或者置1；点击单步时钟，输出信号q始终亮，qn始终不亮，实现了同步置1的逻辑功能。![](/assets/flip002.png)
-
-   当复位信号置为0，输入信号set置0时；点击单步时钟，输出信号q和qn始终是输入信号d的取反值，实现了D触发器的逻辑功能。![](/assets/flip003.png)
+3. 数码管显示列子
 
 
 
