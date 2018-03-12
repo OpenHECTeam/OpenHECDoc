@@ -4,7 +4,7 @@
 
 #### 一、开发入口
 
-组合逻辑数码管的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170405000000000089](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
+时序逻辑LED点阵的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000003](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
 组合逻辑数码管采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
 
