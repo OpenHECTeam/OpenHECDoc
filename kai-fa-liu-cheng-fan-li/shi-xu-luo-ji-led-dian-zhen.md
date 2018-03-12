@@ -11,6 +11,7 @@
 实验资料**oLib**目录中主要资料如下。
 
 * [纯FPGA模式下的**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)
+* LED点阵对角线顺序点亮的参考代码（led\_arrary.v ）
 
 本次实验基于教学板卡+虚拟面板的线上实验方式，实现8x8点阵LED的对角线顺序显示。其参考代码如下：
 
@@ -25,10 +26,10 @@ module led_arrary
 
     reg     [ 7: 0] reg_led_row;
     reg     [ 7: 0] reg_led_col;
-    
+
     assign FlyxIO_led_array_row = reg_led_row;
     assign FlyxIO_led_array_col = reg_led_col;
-    
+
     always @ (posedge clk) 
     begin
         if(rst) 
@@ -58,7 +59,9 @@ endmodule
 
    点击**Next**，然后**Finish**完成项目的创建。
 
-2. **添加OpenHEC实验平台顶层文件**
+2. 添加led显示的用户逻辑
+
+3. **添加OpenHEC实验平台顶层文件**
 
    接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
 
@@ -66,7 +69,7 @@ endmodule
 
    选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。
 
-3. **用户逻辑与实验支撑包的接口绑定**
+4. **用户逻辑与实验支撑包的接口绑定**
 
    根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，数码管的管脚可以跟开关管脚一一绑定。这里面没有调用用户IP核，因此需要注释掉实列化IP核模块的区域。
 
@@ -87,11 +90,11 @@ endmodule
     );*/
    ```
 
-4. **综合与实现**
+5. **综合与实现**
 
    OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/seg\_proj**下。![](/assets/seg_gen_bit.png)
 
-5. **完成开发**
+6. **完成开发**
 
    拷贝桌面文件夹**proj\_ip/seg\_proj**下的位流文件**seg\_proj.bit** 到oDisk目录，完成开发。![](/assets/finish_seg.png)
 
