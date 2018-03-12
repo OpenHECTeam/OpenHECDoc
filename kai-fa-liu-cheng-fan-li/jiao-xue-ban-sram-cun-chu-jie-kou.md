@@ -39,19 +39,19 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
 2. **添加OpenHEC实验平台顶层文件**
 
-   接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
+   接下来添加OpenHEC实验平台顶层文件，文件存放在**oLib/RELAX\_FlyxSOM\_LED7SEG\_SRAM/relax\_top **文件夹下，名为**OpenHEC\_Exp\_Top.v**。
 
-   在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。
+   在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib/RELAX\_FlyxSOM\_LED7SEG\_SRAM/relax\_top** 文件夹下的**OpenHEC\_Exp\_Top.v**文件。
 
    选择 **Copy sources into project**`,`点击**Finish**`,`完成OpenHEC实验平台顶层文件的加载。
 
 3. **用户逻辑与实验支撑包的接口绑定**
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab\_reset上**，输出管脚 **FlyxIO\_led\_array\_col **和**FlyxIO\_led\_array\_row**直接一一绑定到点阵LED的列和行管脚上，同时注释掉点阵LED中的赋值语句。
+   支撑包[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html) 已经预先完成了用户逻辑与实验支撑包的绑定，参考代码如下，
 
 4. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM\_LED7SEG/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/led\_proj**下。
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM\_LED7SEG\_SRAM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/led\_proj**下。
 
 5. **完成开发**
 
