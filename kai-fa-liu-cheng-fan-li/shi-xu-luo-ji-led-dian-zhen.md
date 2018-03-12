@@ -77,32 +77,27 @@ endmodule
 
 4. **用户逻辑与实验支撑包的接口绑定**
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab**_**reset上，输出管脚 **_
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab\_reset上**，输出管脚 **FlyxIO\_led\_arrary\_col **和**FlyxIO\_led\_arrary\_row**直接一一绑定到点阵LED的列和行管脚上，同时注释掉点阵LED中的赋值语句。
 
    ```verilog
-   assign FlyxIO_seven_segment_a = SW00;
-   assign FlyxIO_seven_segment_b = SW01;
-   assign FlyxIO_seven_segment_c = SW02;
-   assign FlyxIO_seven_segment_d = SW03;
-   assign FlyxIO_seven_segment_e = SW04;
-   assign FlyxIO_seven_segment_f = SW05;
-   assign FlyxIO_seven_segment_g = SW06;
-   assign FlyxIO_seven_segment_dp = SW07;
-   assign FlyxIO_seven_segment_dig1 = SW08;
-   assign FlyxIO_seven_segment_dig2 = SW09;
-
-   /*user_wrapper_top user_wrapper_top_uut
-    (
-    );*/
+   //assign FlyxIO_led_arrary_row = R8IN0;
+   //assign FlyxIO_led_arrary_col = R8IN1;
+   user_wrapper_top user_wrapper_top_uut
+   (
+           .clk(step_clk),
+           .rst(lab_reset),
+           .FlyxIO_led_arrary_col(FlyxIO_led_arrary_col),
+           .FlyxIO_led_arrary_row(FlyxIO_led_arrary_row)
+   );
    ```
 
 5. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/seg\_proj**下。![](/assets/seg_gen_bit.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/led\_proj**下。![](/assets/seg_gen_bit.png)
 
 6. **完成开发**
 
-   拷贝桌面文件夹**proj\_ip/seg\_proj**下的位流文件**seg\_proj.bit** 到oDisk目录，完成开发。![](/assets/finish_seg.png)
+   拷贝桌面文件夹**proj\_ip/led\_proj**下的位流文件**led\_proj.bit** 到oDisk目录，完成开发。
 
 #### 三、使用FPGA
 
