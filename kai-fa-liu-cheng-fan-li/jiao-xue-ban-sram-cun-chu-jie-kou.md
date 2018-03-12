@@ -114,9 +114,7 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
    点击**配置FPGA**，弹出配置FPGA页面，默认加载**我的oDisk**中bit后缀的FPGA位流；先选中刚刚拷贝的**sram\_proj.bit**位流，同时选择纯FPGA模式的配置方式，点击配置即可以。配置FPGA成功后，在虚拟面板有FPGA位流配置成功的提示信息。
 
-2. ##### IO实时监控
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)中数码管的编码规则，在虚拟面板点击单步时钟，同时切换到监控视频页面会看到点阵LED呈现对角线顺序显示，每点击一次单步时钟按钮，LED点动一步。
 
 
 
