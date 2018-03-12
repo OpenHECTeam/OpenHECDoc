@@ -11,7 +11,7 @@
 实验资料**oLib**目录中主要资料如下。
 
 * [纯FPGA模式下的**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)
-* LED点阵对角线顺序点亮的参考代码（led\_arrary.v ）
+* LED点阵对角线顺序点亮的参考代码（led\_array.v ）
 
 本次实验基于教学板卡+虚拟面板的线上实验方式，实现8x8点阵LED的对角线顺序显示。其参考代码如下：
 
@@ -61,7 +61,7 @@ endmodule
 
 2. ##### 添加led点阵显示的用户逻辑
 
-   添加LED点阵对角线顺序点亮的逻辑源文件，文件存放在**oLib/led\_arrary.v**下。
+   添加LED点阵对角线顺序点亮的逻辑源文件，文件存放在**oLib/led\_array.v**下。
 
    在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib**文件夹下的**led\_array.v**文件。
 
@@ -77,17 +77,17 @@ endmodule
 
 4. **用户逻辑与实验支撑包的接口绑定**
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab\_reset上**，输出管脚 **FlyxIO\_led\_arrary\_col **和**FlyxIO\_led\_arrary\_row**直接一一绑定到点阵LED的列和行管脚上，同时注释掉点阵LED中的赋值语句。
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab\_reset上**，输出管脚 **FlyxIO\_led\_array\_col **和**FlyxIO\_led\_array\_row**直接一一绑定到点阵LED的列和行管脚上，同时注释掉点阵LED中的赋值语句。
 
    ```verilog
-   //assign FlyxIO_led_arrary_row = R8IN0;
-   //assign FlyxIO_led_arrary_col = R8IN1;
+   //assign FlyxIO_led_array_row = R8IN0;
+   //assign FlyxIO_led_array_col = R8IN1;
    led_arrary user_wrapper_top_uut
    (
            .clk(step_clk),
            .rst(lab_reset),
-           .FlyxIO_led_arrary_col(FlyxIO_led_arrary_col),
-           .FlyxIO_led_arrary_row(FlyxIO_led_arrary_row)
+           .FlyxIO_led_array_col(FlyxIO_led_array_col),
+           .FlyxIO_led_array_row(FlyxIO_led_array_row)
    );
    ```
 
