@@ -1,6 +1,6 @@
 ### [时序逻辑LED点阵](http://www.iopenhec.com/#!/experiment/000020170413000000000003)
 
-时序逻辑LED点阵是基于虚拟面板+教学板卡的线上实验方式，实现8x8点阵LED的对角线顺序点亮，是在纯FPGA模式下使用[RELAX\_FlyxSOM](http://www.iopenhec.com/#!/app/forum/topics/2332)实验支撑包来进行开发的。
+时序逻辑LED点阵是基于虚拟面板+教学板卡的线上实验方式，实现8x8点阵LED的对角线顺序点亮，是在纯FPGA模式下使用[**RELAX\_FlyxSOM\_LED7SEG**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)实验支撑包来进行开发的。
 
 #### 一、开发入口
 
@@ -75,13 +75,15 @@
 
 3. ##### **数码管显示 0.0.**
 
-	![](blob:file:///34ebe832-4ac7-4c3f-8cd5-7d70251bda67)![](blob:file:///f22ac639-a20c-4cd3-91de-81728ad20223)
+   ![](blob:file:///34ebe832-4ac7-4c3f-8cd5-7d70251bda67)![](blob:file:///f22ac639-a20c-4cd3-91de-81728ad20223)
 
-4. ##### **数码管显示 1.1.** 
-	
-	![](blob:file:///0e5afef0-9f2d-405b-87e0-157b6a95d4e1)![](/assets/segshow0004.png)
+4. ##### **数码管显示 1.1.**
+
+   ![](blob:file:///0e5afef0-9f2d-405b-87e0-157b6a95d4e1)![](/assets/segshow0004.png)
 
 5. ##### **数码管显示 6.6.**
 
-	![](/assets/segshow0005.png)![](/assets/segshow0007.png)
+   ![](/assets/segshow0005.png)![](/assets/segshow0007.png)
+
+
 
