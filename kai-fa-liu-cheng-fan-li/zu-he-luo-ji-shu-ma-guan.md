@@ -55,13 +55,11 @@
 
 4. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/seg\_proj**下。![](/assets/genbit002.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/seg\_proj**下。![](/assets/seg_gen_bit.png)
 
 5. **完成开发**
 
-   拷贝桌面文件夹**proj\_ip/seg\_proj**下的位流文件**seg\_proj.bit** 到oDisk目录，完成开发。![](/assets/finishdev002.png)
-
-##### 
+   拷贝桌面文件夹**proj\_ip/seg\_proj**下的位流文件**seg\_proj.bit** 到oDisk目录，完成开发。![](/assets/finish_seg.png)
 
 #### 三、使用FPGA
 
@@ -75,7 +73,7 @@
 
    根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)中数码管的编码规则，当输入开关DIG1、DIG2都置1时，从监控视频中可以观察到，数码管会显示字符。
 
-3. 数码管显示列子
+3. 数码管显示
 
 
 
