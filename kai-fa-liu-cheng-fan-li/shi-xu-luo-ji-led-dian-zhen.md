@@ -77,7 +77,7 @@ endmodule
 
 4. **用户逻辑与实验支撑包的接口绑定**
 
-   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，数码管的管脚可以跟开关管脚一一绑定。这里面没有调用用户IP核，因此需要注释掉实列化IP核模块的区域。
+   根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)解析说明，用户逻辑的工作时钟clk和复位信号rst分别绑定到**step\_clk**和复位信号**lab**_**reset上，输出管脚 **_
 
    ```verilog
    assign FlyxIO_seven_segment_a = SW00;
