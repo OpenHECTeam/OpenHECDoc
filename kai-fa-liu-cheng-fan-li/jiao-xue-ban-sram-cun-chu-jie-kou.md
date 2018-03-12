@@ -12,7 +12,7 @@
 
 * 纯FPGA模式下的[**RELAX\_FlyxSOM\_LED7SEG\_SRAM**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)实验支撑包
 
-SRAM接口说明如下表所示。
+SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对SRAM进行访存操作的地址范围为0x5000000-0x50ffffff。用户逻辑取对SRAM进行访存操作的地址范围为0x00000000 - 0x00ffffff。
 
 | 信号名 | IO方向 | 宽度 | 说明 | 功能 |
 | :--- | :--- | :--- | :--- | :--- |
