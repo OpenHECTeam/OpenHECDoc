@@ -1,53 +1,16 @@
 ### [组合逻辑数码管](http://www.iopenhec.com/#!/experiment/000020170405000000000089)
 
-组合逻辑数码管是基于虚拟面板+教学板卡的线上shi：带同步清0、同步置1的D触发器，是在纯FPGA模式下使用[RELAX\_FlyxSOM](http://www.iopenhec.com/#!/app/forum/topics/2332)实验支撑包来进行开发的。
+组合逻辑数码管是基于虚拟面板+教学板卡的线上实验方式，实现从0到F的数码管显示，是在纯FPGA模式下使用[RELAX\_FlyxSOM](http://www.iopenhec.com/#!/app/forum/topics/2332)实验支撑包来进行开发的。
 
 #### 一、开发入口
 
-时序逻辑D触发器的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000002](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
+组合逻辑数码管的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170405000000000089](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
 时序逻辑D触发器采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
 
 实验资料**oLib**目录中主要资料如下。
 
 * [纯FPGA模式下的RELAX\_FlyxSOM实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-ru-men-shou-ce.html)
-
-* D触发器IP核\(**OpenHEC\_user\_d\_flipflop\_logic\_1.0**\)
-
-实验中的D触发器IP核的verilog代码如下：
-
-```verilog
-module d_flipflop_logic
-(
-    input   wire    clk,
-    input   wire    reset,
-    input   wire    set,
-    input   wire    d,
-    output  reg     q,
-    output  reg     qn 
- );
- always @(posedge clk)
- begin
-    //同步清0，高有效
-    if(reset) 
-        begin
-            q <= 1'b0;
-            qn <= 1'b1;
-        end
-    //同步置1，高有效
-    else if(set)
-        begin
-            q  <= 1'b1;
-            qn <= 1'b0;
-        end
-    else
-        begin
-            q <= ~d;
-            qn <= ~d;
-        end
-  end
-  endmodule;
-```
 
 #### 二、使用虚拟机
 
