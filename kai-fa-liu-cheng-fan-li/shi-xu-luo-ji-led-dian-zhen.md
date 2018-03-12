@@ -6,7 +6,7 @@
 
 时序逻辑LED点阵的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000003](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
-组合逻辑数码管采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
+时序逻辑LED点阵采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
 
 实验资料**oLib**目录中主要资料如下。
 
@@ -82,7 +82,7 @@ endmodule
    ```verilog
    //assign FlyxIO_led_arrary_row = R8IN0;
    //assign FlyxIO_led_arrary_col = R8IN1;
-   user_wrapper_top user_wrapper_top_uut
+   led_arrary user_wrapper_top_uut
    (
            .clk(step_clk),
            .rst(lab_reset),
@@ -93,7 +93,7 @@ endmodule
 
 5. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/led\_proj**下。![](/assets/seg_gen_bit.png)
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM\_LED7SEG/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/led\_proj**下。![](/assets/seg_gen_bit.png)
 
 6. **完成开发**
 
