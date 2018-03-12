@@ -118,7 +118,5 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
    根据[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)中数码管的编码规则，在虚拟面板点击单步时钟，同时切换到监控视频页面会看到点阵LED呈现对角线顺序显示，每点击一次单步时钟按钮，LED点动一步。
 
-   ![](/assets/led0003.png)![](/assets/led0004.png)![](/assets/led0005.png)![](/assets/led0006.png)![](/assets/led0007.png)![](/assets/led0008.png)
-
 
 
