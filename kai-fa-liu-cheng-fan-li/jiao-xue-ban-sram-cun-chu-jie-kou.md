@@ -1,51 +1,29 @@
 ### [教学板SRAM存储接口](http://www.iopenhec.com/#!/experiment/000020170413000000000006)
 
-时序逻辑LED点阵是基于虚拟面板+教学板卡的线上实验方式，实现8x8点阵LED的对角线顺序点亮，是在纯FPGA模式下使用[**RELAX\_FlyxSOM\_LED7SEG**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)实验支撑包来进行开发的。
+教学板SRAM存储接口是在纯FPGA模式下使用[**RELAX\_FlyxSOM\_LED7SEG\_SRAM**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)实验支撑包来进行开发的，提供了用户如何在线上使用SRAM存储的接口。
 
 #### 一、开发入口
 
-时序逻辑LED点阵的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000003](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
+教学板SRAM存储接口的OpenHEC平台的开发入口是：[http://www.iopenhec.com/\#!/experiment/000020170413000000000006](http://www.iopenhec.com/#!/experiment/000020170401000000000006)
 
-时序逻辑LED点阵采用的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
+教学板SRAM存储接口的硬件类型为[Flyx-SOM](http://www.iopenhec.com/#!/hardware/000020161019000000000012)，具体芯片型号为**xc7z030fbg484-3**。
 
 实验资料**oLib**目录中主要资料如下。
 
-* [纯FPGA模式下的**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)
-* LED点阵对角线顺序点亮的参考代码（led\_array.v ）
+* 纯FPGA模式下的[**RELAX\_FlyxSOM\_LED7SEG\_SRAM**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html)实验支撑包
 
-本次实验基于教学板卡+虚拟面板的线上实验方式，实现8x8点阵LED的对角线顺序显示。其参考代码如下：
+SRAM接口说明如下表所示。
 
-```verilog
-module led_arrary
-(
-    input   wire            clk,
-    input   wire            rst,
-    output  wire    [7:0]   FlyxIO_led_array_row,
-    output  wire    [7:0]   FlyxIO_led_array_col
-);
-
-    reg     [ 7: 0] reg_led_row;
-    reg     [ 7: 0] reg_led_col;
-
-    assign FlyxIO_led_array_row = reg_led_row;
-    assign FlyxIO_led_array_col = reg_led_col;
-
-    always @ (posedge clk) 
-    begin
-        if(rst) 
-            begin
-                reg_led_row <= 8'b00000001;
-                reg_led_col <= 8'b11111110;
-            end 
-        else 
-            begin
-                reg_led_row <= {reg_led_row[6:0], reg_led_row[7]};
-                reg_led_col <= {reg_led_col[6:0], reg_led_col[7]};  
-            end
-    end
-
-endmodule
-```
+| 信号名 | IO方向 | 宽度 | 说明 | 功能 |
+| :--- | :--- | :--- | :--- | :--- |
+| FlyxIO\_sram\_user\_nce | 输出 | 1 | SRAM芯片有效使能 | 低电平有效 |
+| FlyxIO\_sram\_user\_noe | 输出 | 1 | SRAM芯片输出时能 | 读时为低电平，写时为高电平 |
+| FlyxIO\_sram\_user\_nwe | 输出 | 1 | SRAM芯片写时能 | 读时为高电平，写时位低电平 |
+| FlyxIO\_sram\_user\_nlb | 输出 | 1 | SRAM芯片低8位选通 | 选通时为低电平，不选通置为高电平 |
+| FlyxIO\_sram\_user\_nub | 输出 | 1 | SRAM芯片高8位选通 | 选通时为低电平，不选通置为高电平 |
+| FlyxIO\_sram\_user\_addr | 输出 | 19 | SRAM芯片地址线 |  |
+| FlyxIO\_sram\_user\_wrdata | 输出 | 16 | SRAM写数据线 |  |
+| FlyxIO\_sram\_user\_rd\_data | 输入 | 16 | SRAM读数据线 |  |
 
 #### 二、使用虚拟机
 
@@ -112,7 +90,6 @@ endmodule
    根据[**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)中数码管的编码规则，在虚拟面板点击单步时钟，同时切换到监控视频页面会看到点阵LED呈现对角线顺序显示，每点击一次单步时钟按钮，LED点动一步。
 
    ![](/assets/led0003.png)![](/assets/led0004.png)![](/assets/led0005.png)![](/assets/led0006.png)![](/assets/led0007.png)![](/assets/led0008.png)
-
 
 
 
