@@ -47,7 +47,51 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
 3. **用户逻辑与实验支撑包的接口绑定**
 
-   支撑包[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html) 已经预先完成了用户逻辑与实验支撑包的绑定，参考代码如下，
+   支撑包[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html) 已经预先完成了用户逻辑与实验支撑包的绑定，参考代码如下。
+
+   ```verilog
+    reg                      reg_sram_user_nce;
+    reg                      reg_sram_user_noe;
+    reg                      reg_sram_user_nwe;
+    reg                      reg_sram_user_nlb;
+    reg                      reg_sram_user_nub;
+    reg        [18:0]        reg_sram_user_addr;
+    reg        [15:0]        reg_sram_user_wrdata;
+    reg        [15:0]        reg_R16OUT0;
+    assign FlyxIO_sram_user_nce = reg_sram_user_nce;
+    assign FlyxIO_sram_user_noe = reg_sram_user_noe;
+    assign FlyxIO_sram_user_nwe = reg_sram_user_nwe;
+    assign FlyxIO_sram_user_nlb = reg_sram_user_nlb;
+    assign FlyxIO_sram_user_nub = reg_sram_user_nub;
+    assign FlyxIO_sram_user_addr = reg_sram_user_addr;
+    assign FlyxIO_sram_user_wrdata = reg_sram_user_wrdata;
+    assign R16OUT0 = reg_R16OUT0;
+    always @ (posedge step_clk)
+    begin
+        if(lab_reset)
+            begin
+                reg_sram_user_nce <= 1'b1;
+                reg_sram_user_noe <= 1'b1;
+                reg_sram_user_nwe <= 1'b1;
+                reg_sram_user_nlb <= 1'b1;
+                reg_sram_user_nub <= 1'b1;
+                reg_sram_user_addr <= 19'b0;
+                reg_sram_user_wrdata <= 16'h0000;
+                reg_R16OUT0 <= 16'h0000;
+            end
+        else
+            begin
+                reg_sram_user_nce <= SW10;
+                reg_sram_user_noe <= SW11;
+                reg_sram_user_nwe <= SW12;
+                reg_sram_user_nlb <= SW13;
+                reg_sram_user_nub <= SW14;
+                reg_sram_user_addr <= R32IN0[18:0];
+                reg_sram_user_wrdata <= R16IN0;
+                reg_R16OUT0 <= FlyxIO_sram_user_rddata;
+            end    
+    end
+   ```
 
 4. **综合与实现**
 
