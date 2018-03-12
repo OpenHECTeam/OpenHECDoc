@@ -47,7 +47,7 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
 3. **用户逻辑与实验支撑包的接口绑定**
 
-   支撑包[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html) 已经预先完成了用户逻辑与实验支撑包的绑定，参考代码如下。
+   支撑包[**RELAX\_FlyxSOM\_LED7SEG\_SRAM实验支撑包**](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.html) 已经预先完成了用户逻辑与实验支撑包的绑定，在系统注释区域注释掉用户逻辑区绑定的IO输出端口及系统预留用户调用模块，参考代码如下。
 
    ```verilog
     reg                      reg_sram_user_nce;
@@ -91,7 +91,7 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
                 reg_R16OUT0 <= FlyxIO_sram_user_rddata;
             end    
     end
- 
+
      //assign R16OUT0 = R16IN0;
     /*user_wrapper_top user_wrapper_top_uut
     (
