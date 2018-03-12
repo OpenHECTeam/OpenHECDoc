@@ -59,7 +59,13 @@ endmodule
 
    点击**Next**，然后**Finish**完成项目的创建。
 
-2. 添加led显示的用户逻辑
+2. ##### 添加led点阵显示的用户逻辑
+
+   添加LED点阵对角线顺序点亮的逻辑源文件，文件存放在**oLib/led\_arrary.v**下。
+
+   在**Flow Navigator/Project Manager**选项卡下选择**Add Sources**，在弹出的窗口中选择**Add or create design sources**，点击**Next**，点击**+**号标志，选择**Add Files**，添加** oLib**文件夹下的**led\_array.v**文件。
+
+   选择 **Copy sources into project**`,`点击**Finish**`,`完成LED点阵显示用户文件的加载。
 
 3. **添加OpenHEC实验平台顶层文件**
 
