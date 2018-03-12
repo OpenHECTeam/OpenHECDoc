@@ -14,7 +14,37 @@
 
 本次实验基于教学板卡+虚拟面板的线上实验方式，实现8x8点阵LED的对角线顺序显示。其参考代码如下：
 
+```verilog
+module led_arrary
+(
+    input   wire            clk,
+    input   wire            rst,
+    output  wire    [7:0]   FlyxIO_led_array_row,
+    output  wire    [7:0]   FlyxIO_led_array_col
+);
 
+    reg     [ 7: 0] reg_led_row;
+    reg     [ 7: 0] reg_led_col;
+    
+    assign FlyxIO_led_array_row = reg_led_row;
+    assign FlyxIO_led_array_col = reg_led_col;
+    
+    always @ (posedge clk) 
+    begin
+        if(rst) 
+            begin
+                reg_led_row <= 8'b00000001;
+                reg_led_col <= 8'b11111110;
+            end 
+        else 
+            begin
+                reg_led_row <= {reg_led_row[6:0], reg_led_row[7]};
+                reg_led_col <= {reg_led_col[6:0], reg_led_col[7]};  
+            end
+    end
+
+endmodule
+```
 
 #### 二、使用虚拟机
 
