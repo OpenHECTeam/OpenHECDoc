@@ -12,11 +12,15 @@
 
 * [纯FPGA模式下的**RELAX\_FlyxSOM\_LED7SEG**实验支撑包](http://doc.iopenhec.com/ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-ru-men-shou-ce.html)
 
+本次实验基于教学板卡+虚拟面板的线上实验方式，实现8x8点阵LED的对角线顺序显示。其参考代码如下：
+
+
+
 #### 二、使用虚拟机
 
 1. ##### **新建用户逻辑工程**
 
-   启动vivado 2015.2后，选择**Create New Project**，点击**Next**，输入项目名为**seg\_proj**和项目位置新建在桌面下的**proj\_ip**。
+   启动vivado 2015.2后，选择**Create New Project**，点击**Next**，输入项目名为**led\_proj**和项目位置新建在桌面下的**proj\_ip**。
 
    点击**Next**，在**Project Type**选项里，将**Do not specify source at this time**勾选上。
 
