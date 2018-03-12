@@ -16,7 +16,7 @@
     * [时序逻辑D触发器](kai-fa-liu-cheng-fan-li/shi-xu-luo-ji-d-hong-fa-qi.md)
     * [片上ROM存储接口](kai-fa-liu-cheng-fan-li/pian-shang-rom-cun-chu-jie-kou.md)
     * [片外RAM存储接口](kai-fa-liu-cheng-fan-li/pian-wai-ram-cun-chu-jie-kou.md)
-    * 组合逻辑数码管
+    * [组合逻辑数码管](kai-fa-liu-cheng-fan-li/zu-he-luo-ji-shu-ma-guan.md)
     * 时序逻辑LED点阵
     * [教学板SRAM存储接口](kai-fa-liu-cheng-fan-li/jiao-xue-ban-sram-cun-chu-jie-kou.md)
     * 软硬件协同之sobel算法加速
