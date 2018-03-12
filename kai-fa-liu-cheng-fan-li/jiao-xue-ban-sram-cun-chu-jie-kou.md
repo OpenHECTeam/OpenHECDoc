@@ -100,11 +100,11 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
 4. **综合与实现**
 
-   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM\_LED7SEG\_SRAM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/sram\_proj**下。
+   OpenHEC实验支撑包中提供综合实现的tcl脚本，可以自动完成整个系统的综合，最终生成比特流文件。点击 **Tools/Run Tcl Script**，选择文件夹**oLib/RELAX\_FlyxSOM\_LED7SEG\_SRAM/tcl **下的**relax\_syn\_imp\_flow.tcl**文件，点击OK，自动运行综合与实现，等待生成位流。比特流文件存放在桌面文件夹**proj\_ip/sram\_proj**下。![](/assets/sram_genbit.png)
 
 5. **完成开发**
 
-   拷贝桌面文件夹**proj\_ip/sram\_proj**下的位流文件**sram\_proj.bit** 到oDisk目录，完成开发。
+   拷贝桌面文件夹**proj\_ip/sram\_proj**下的位流文件**sram\_proj.bit** 到oDisk目录，完成开发。![](/assets/sram_finish.png)
 
 #### 三、使用FPGA
 
