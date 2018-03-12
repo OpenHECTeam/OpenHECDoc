@@ -91,6 +91,11 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
                 reg_R16OUT0 <= FlyxIO_sram_user_rddata;
             end    
     end
+ 
+     //assign R16OUT0 = R16IN0;
+    /*user_wrapper_top user_wrapper_top_uut
+    (
+    );*/
    ```
 
 4. **综合与实现**
