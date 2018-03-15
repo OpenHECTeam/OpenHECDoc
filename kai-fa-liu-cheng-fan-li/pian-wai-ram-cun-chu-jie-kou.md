@@ -193,11 +193,9 @@
 
    RAM0复位操作。设置复位1, 点击单步时钟激励，对RAM0进行复位。
 
-   RAM0读操作。设置RAM0的读使能信号ram0\_ren为高, 输入读地址信号到ram0\_raddr，等待读有效ram0\_rvalid信号为高的时候，点击单步时钟观察读读回来的数据 ram0\_rdata的值，如图6.5所示
+   RAM0读操作。设置RAM0的读使能信号ram0\_ren为高, 输入读地址信号到ram0\_raddr，等待读有效ram0\_rvalid信号为高的时候，点击单步时钟观察读读回来的数据 ram0\_rdata的值。![](/assets/ram_show0008.png)![](/assets/ram_show_0009.png)![](/assets/ram_show_0010.png)
 
-   RAM0写操作。设置RAM0的写时能信号ram0\_wen为高，字节选通信号ram0\_sel全为高，输入写地址信号到ram0\_waddr，写地址数据ram0\_wdata，点击单步时钟多次后，拉低写时能信号ram0\_wen， 当ram0\_wready信号由低变成高电平时，表示写入成功。如图6.6所示，这里往RAM0的0x00000000里面写入数据0x12345678。
-
-   返回到读存储页面，点击确认，检查RAM0的地址位为0x00000000是否变成数据0x12345678，如图6.7所示。
+   RAM0写操作。设置RAM0的写时能信号ram0\_wen为高，字节选通信号ram0\_sel全为高，输入写地址信号到ram0\_waddr，写地址数据ram0\_wdata，点击单步时钟多次后，拉低写使能信号ram0\_wen， 当ram0\_wready信号由低变成高电平时，表示写入成功。这里往RAM0的0x00000000里面写入数据0x12345678。返回到读存储页面，点击确认，检查RAM0的地址位为0x00000000是否变成数据0x12345678。![](/assets/ram_show_0011.png)![](/assets/ram_show_0012.png)
 
 
 
