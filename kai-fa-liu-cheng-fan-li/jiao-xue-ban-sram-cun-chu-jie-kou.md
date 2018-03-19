@@ -153,11 +153,11 @@ SRAM接口说明如下表所示。WEB实验页面中的写存储和读存储对S
 
    WEB页面下对SRAM进行写操作和读操作完成后，接下来通过IO实时监控来观察。
 
-   SRAM读操作。设置SRAM的写使能信号`SRAMNWE`为高,其他SRAM控制信号为低， 输入读地址信号到`SRAMADDR`，点击单步时钟观察读读回来的数据`SRAM_RDDATA`的值。
+   SRAM读操作。设置SRAM的写使能信号**SRAMNWE**为高,其他SRAM控制信号为低， 输入读地址信号到**SRAMADDR**，点击单步时钟观察读读回来的数据**SRAM\_RDDATA**的值。![](/assets/sram_read_0001.png)![](/assets/sram_rd_0002.png)![](/assets/sram_rd_0003.png)
 
-   SRAM写操作。设置SRAM的写时能信号SRAMNWE为低，输出使能SRAMOE为高，其他SRAM控制信号为低，输入写地址信号到SRAMADDR，写地址数据SRAM\_WRDATA，点击单步时钟2-3拍后。如下图所示，这里往SRAM的0x0000001c里面写入数据0x6666。
+   SRAM写操作。设置SRAM的写时能信号**SRAMNWE**为低，输出使能**SRAMOE**为高，其他SRAM控制信号为低，输入写地址信号到SRAMADDR，写地址数据SRAM\_WRDATA，点击单步时钟2-3拍后。如下图所示，这里往SRAM的0x0000001c里面写入数据0x6666。![](/assets/sram_wr_0001.png)![](/assets/sram_wr_0002.png)
 
-6. **检查数据是否成功写入SRAM存储器中。**
+6. **检查数据是否成功写入SRAM存储器中。**![](/assets/sram_check.png)
 
 7. **友情提示**
 
