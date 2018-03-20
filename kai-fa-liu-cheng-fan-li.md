@@ -17,8 +17,6 @@ OpenHEC平台上FPGA开发主要支持纯FPGA模式、SoC模式和裸机模式�
    [时序逻辑LED点阵](http://www.iopenhec.com/#!/experiment/000020170413000000000003)
    [教学板SRAM存储接口](http://www.iopenhec.com/#!/experiment/000020170413000000000006)
 
-
-
 ### 二、SoC模式
 
 1. **基于RELAXSoC支撑包的加速核SoC模式开发**
