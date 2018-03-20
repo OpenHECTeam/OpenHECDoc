@@ -14,7 +14,7 @@ Flyx-SOM硬件支撑包是主要有纯FPGA开发模式和SoC模式两种。其�
 
 #### 二、SoC模式支撑包系统结构
 
-![](/assets/37d3795ddcb39a1bc40b332c11c0b931.png)
+#### ![](/assets/37d3795ddcb39a1bc40b332c11c0b931.png)
 
 OpenHEC项目支撑包面向FPGA SoC，当前版本主要支持Xilinx公司的Zynq系列芯片。Zynq系列芯片内包含通用的ARM处理器核心（PS部分）和FPGA可重构逻辑资源（PL部分），构成了典型的异构计算架构。Zynq系列处理器详细信息请参考Xilinx官方手册《DS190: Zynq-7000 All Programmable SoC Overview》。
 
