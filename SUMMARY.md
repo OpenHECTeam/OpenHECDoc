@@ -28,7 +28,7 @@
       * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
       * [RELAXSoC\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
     * [组合逻辑与门快速体验](ying-jian/flyx-somji-chu-pei-zhi/zu-he-luo-ji-ru-men-kuai-su-ti-yan.md)
-      * [组合逻辑数码管快速体验](ying-jian/flyx-somji-chu-pei-zhi/zu-he-luo-ji-ru-men-kuai-su-ti-yan/zu-he-luo-ji-shu-ma-guan-kuai-su-ti-yan.md)
+    * [组合逻辑数码管快速体验](ying-jian/flyx-somji-chu-pei-zhi/zu-he-luo-ji-ru-men-kuai-su-ti-yan/zu-he-luo-ji-shu-ma-guan-kuai-su-ti-yan.md)
 * [知识点](zhi-shi-dian.md)
   * [工具类](zhi-shi-dian/gong-ju-lei.md)
     * [Vivado](zhi-shi-dian/gong-ju-lei/vivado.md)
