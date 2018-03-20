@@ -2,6 +2,8 @@
 
 Flyx-SOM是OpenHEC自研的基于zynq架构的计算节点，芯片为XC7Z030‐3FBG484，存储为1GB RAM，支持千兆网络，独立Flash等模块。![](/assets/flyxsom_bd.png)
 
+---
+
 Flyx-SOM硬件支撑包是主要有纯FPGA开发模式和SoC模式两种。其中纯FPGA模式的支撑包有RELAX\_FlyxSOM、RELAX\_FlyxSOM\_LED7SEG和RELAX\_FlyxSOM\_LED7SEG\_SRAM；SoC模式的支撑包有RELAXSoC\_FlyxSOM。
 
 #### 一、纯FPGA模式支撑包系统结构
