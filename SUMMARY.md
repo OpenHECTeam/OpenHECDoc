@@ -28,11 +28,6 @@
     * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
     * [RELAXSoC\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
 * [知识点](zhi-shi-dian.md)
-  * [工具类](zhi-shi-dian/gong-ju-lei.md)
-    * [Vivado](zhi-shi-dian/gong-ju-lei/vivado.md)
-  * [语言类](zhi-shi-dian/yu-yan-lei.md)
-    * [Verilog](zhi-shi-dian/yu-yan-lei/hdl.md)
-    * HLS
   * [课程类](zhi-shi-dian/ke-cheng-lei.md)
   * [技能类](zhi-shi-dian/ji-neng-lei.md)
 * [常见问题](chang-jian-wen-ti.md)
