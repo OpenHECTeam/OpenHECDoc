@@ -65,8 +65,6 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
 
 4. 软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
 
-5. 软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
-
    ```c
    int main()
    {
@@ -108,11 +106,13 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
    }
    ```
 
-5.
+5. 拷贝oLib中** sobel\_sw\_prog**文件夹到桌面下，在终端下进入到拷贝后的文件夹路径，输入**make**,即可以看到生成节点ARM端的可执行程序。
 
-Sobel加速器需要运行在OpenHEC在线平台的硬件节点上，sobel\_test中提供了一个执行脚本fpga\_run.sh，内容如下：
+##### 三、使用FPGA
 
-\#!/bin/bash
+1. Sobel加速器需要运行在OpenHEC在线平台的硬件节点上，sobel\_test中提供了一个执行脚本fpga\_run.sh，内容如下
+
+   \#!/bin/bash
 
 \#\#\#\# EXECUTE ON FPGA
 
