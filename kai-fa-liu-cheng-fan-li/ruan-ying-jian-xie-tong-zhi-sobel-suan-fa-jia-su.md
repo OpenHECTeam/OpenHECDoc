@@ -106,39 +106,30 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
    }
    ```
 
-5. 拷贝oLib中** sobel\_sw\_prog**文件夹到桌面下，在终端下进入到拷贝后的文件夹路径，输入**make**,即可以看到生成节点ARM端的可执行程序。
+5. 拷贝oLib中** sobel\_sw\_prog**文件夹到桌面下，在终端下进入到拷贝后的文件夹路径，输入**make**，即可以看到生成节点ARM端的可执行程序**a.out**。
+
+6. 拷贝**sobel\_sw\_prog**到**oDisk**中_，_同时把生成的位流文件**user\_design.bit**放到**oDisk**中的**sobel\_sw\_prog**文件夹中_。_
 
 ##### 三、使用FPGA
 
 1. Sobel加速器需要运行在OpenHEC在线平台的硬件节点上，sobel\_test中提供了一个执行脚本fpga\_run.sh，内容如下
 
-   \#!/bin/bash
+   ```bash
+   #!/bin/bash
+   #### EXECUTE ON FPGA
+   ./devmem2 0xf8008000 w 1
+   ./devmem2 0xf8008014 w 1
+   cat user_design.bit > /dev/xdevcfg
+   ./a.out
+   ```
 
-\#\#\#\# EXECUTE ON FPGA
+2. **./devmem2 0xf8008000 w 1**和**./devmem2 0xf8008014 w 1**用于将Zynq芯片内的AXI HP0接口总线带宽设置为32位。这两个命令的执行需要一个外部工具devmem2，该工具由OpenHEC提供。cat user\_design.bit &gt; /dev/xdevcfg命令负责将位流文件user\_design.bit配置到FPGA上。最后也可以使用配置FPGA按钮，选择SoC模式来配置FPGA。./a.out执行Sobel加速器测试。
 
-./devmem2 0xf8008000 w 1
+3. 在节点上实现软件功能
 
-./devmem2 0xf8008014 w 1
+   点击终端登录，在/home/linaro下找到sobel\_sw\_prog目录下，通过执行./fpga\_run.sh脚本，配置FPGA并开始执行。Sobel加速器执行时采用的输入图像如下：
 
-cat user\_design.bit &gt; /dev/xdevcfg
+   执行完成后，得到输出图像文件result.bmp，打开后如
 
-./a.out
 
-./devmem2 0xf8008000 w 1和./devmem2 0xf8008014 w 1用于将Zynq芯片内的AXI HP0接口总线带宽设置为32位。这两个命令的执行需要一个外部工具devmem2，该工具由OpenHEC提供。
-
-cat user\_design.bin &gt; /dev/xdevcfg命令负责将位流文件user\_design.bin配置到FPGA上。最后通过.也可以使用配置FPGA按钮，选择SoC模式来配置FPGA。
-
-./a.out执行Sobel加速器测试。
-
-2.4.3 在节点上实现软件功能
-
-申请到节点以后，点击终端登录，在/home/linaro下找到sobel\_sw\_prog目录下执行make命令，本地编译Sobel软件部分的代码。编译完成后生成可执行文件a.out。
-
-通过执行./fpga\_run.sh脚本，配置FPGA并开始执行。Sobel加速器执行时采用的输入图像如下：
-
-图片
-
-执行完成后，得到输出图像文件result.bmp，打开后如下
-
-图片
 
