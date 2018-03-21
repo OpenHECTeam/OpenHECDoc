@@ -63,158 +63,52 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
 
    自此，Sobel硬件加速器部分已经全部完成，下面是节点上的软件部分的实现。
 
-4. 在节点上实现软件功能
+4. 软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
 
-   软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
+5. 软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
 
    ```c
    int main()
    {
-       void \*user\_base\_addr;
+       void *user_base_addr;
        int ncols = 1920;
        int nrows = 1080;
        //将控制接口映射到进程的地址空间
-       set_mapbase(&user_base_addr, BASE_ADDR\);
-       unsigned char \*R, \*G, \*B;
-
-   R = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-   G = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-   B = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-   //读取输入图像文件
-
-   BMP\_Read\("test\_1080p.bmp", nrows, ncols, R, G, B\);
-
-   int size = ncols\*nrows\*4;
-
-   clearMemory\(0x34000000, size\);
-
-   //将输入图像文件写入物理地址为0x34000000起始的内存区域中
-
-   Write\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x34000000\);
-
-   //配置Sobel加速器IP的各项参数
-
-   write\_uint32\(user\_base\_addr, RDOFFSET, 0x34000000\);
-
-   write\_uint32\(user\_base\_addr, WROFFSET, 0x36000000\);
-
-   write\_uint32\(user\_base\_addr, ROWS, nrows\);
-
-   write\_uint32\(user\_base\_addr, COLS, ncols\);
-   write_uint32(user_base_addr, STRIDE, ncols);
-   //启动加速器IP
-   write\_uint32\(user\_base\_addr, AP\_CTRL, 1\);    
-
-   //以轮询方式检测加速器是否执行完毕
-
-   while\(1\){
-
-       if\(read\_uint32\(user\_base\_addr, AP\_CTRL\)&0x2==0x2\) break;
-
-   }
-
-   //执行完毕后，将结果数据从0x36000000起始的内存区域中读取计算结果
-
-   Read\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x36000000\);
-
-   //将计算结果写入结果文件中
-
-   BMP\_Write\("result.bmp", nrows, ncols, R, G, B\);
-
-   free\(R\);
-
-   free\(G\);
-
-   free\(B\);
-
-   return 0;
+       set_mapbase(&user_base_addr, BASE_ADDR);
+       unsigned char *R, *G, *B;
+       R = (unsigned char*)malloc(ncols*nrows*sizeof(unsigned char));
+       G = (unsigned char*)malloc(ncols*nrows*sizeof(unsigned char));
+       B = (unsigned char*)malloc(ncols*nrows*sizeof(unsigned char));
+       //读取输入图像文件
+       BMP_Read("test_1080p.bmp", nrows, ncols, R, G, B);
+       int size = ncols*nrows*4;
+       clearMemory(0x34000000, size);
+       //将输入图像文件写入物理地址为0x34000000起始的内存区域中
+       Write_AXI4_RGB_DATA(R, G, B, ncols, nrows, 0x34000000);
+       //配置Sobel加速器IP的各项参数
+       write_uint32(user_base_addr, RDOFFSET, 0x34000000);
+       write_uint32(user_base_addr, WROFFSET, 0x36000000);
+       write_uint32(user_base_addr, ROWS, nrows);
+       write_uint32(user_base_addr, COLS, ncols);
+       write_uint32(user_base_addr, STRIDE, ncols);
+       //启动加速器IP
+       write_uint32(user_base_addr, AP_CTRL, 1);    
+       //以轮询方式检测加速器是否执行完毕
+       while(1){
+           if(read_uint32(user_base_addr, AP_CTRL)&0x2==0x2) break;
+       }
+       //执行完毕后，将结果数据从0x36000000起始的内存区域中读取计算结果
+       Read_AXI4_RGB_DATA(R, G, B, ncols, nrows, 0x36000000);
+       //将计算结果写入结果文件中
+       BMP_Write("result.bmp", nrows, ncols, R, G, B);
+       free(R);
+       free(G);
+       free(B);
+       return 0;
    }
    ```
 
-
-
-int main\(\)
-
-{
-
-```
-void \*user\_base\_addr;
-
-int ncols = 1920;
-
-int nrows = 1080;
-
-//将控制接口映射到进程的地址空间
-
-set\_mapbase\(&user\_base\_addr, BASE\_ADDR\);
-
-unsigned char \*R, \*G, \*B;
-
-R = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-G = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-B = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
-
-//读取输入图像文件
-
-BMP\_Read\("test\_1080p.bmp", nrows, ncols, R, G, B\);
-
-int size = ncols\*nrows\*4;
-
-clearMemory\(0x34000000, size\);
-
-//将输入图像文件写入物理地址为0x34000000起始的内存区域中
-
-Write\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x34000000\);
-
-//配置Sobel加速器IP的各项参数
-
-write\_uint32\(user\_base\_addr, RDOFFSET, 0x34000000\);
-
-write\_uint32\(user\_base\_addr, WROFFSET, 0x36000000\);
-
-write\_uint32\(user\_base\_addr, ROWS, nrows\);
-
-write\_uint32\(user\_base\_addr, COLS, ncols\);
-```
-
-write\_uint32\(user\_base\_addr, STRIDE, ncols\);
-
-//启动加速器IP
-
-```
-write\_uint32\(user\_base\_addr, AP\_CTRL, 1\);    
-
-//以轮询方式检测加速器是否执行完毕
-
-while\(1\){
-
-    if\(read\_uint32\(user\_base\_addr, AP\_CTRL\)&0x2==0x2\) break;
-
-}
-
-//执行完毕后，将结果数据从0x36000000起始的内存区域中读取计算结果
-
-Read\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x36000000\);
-
-//将计算结果写入结果文件中
-
-BMP\_Write\("result.bmp", nrows, ncols, R, G, B\);
-
-free\(R\);
-
-free\(G\);
-
-free\(B\);
-
-return 0;
-```
-
-}
+5.
 
 Sobel加速器需要运行在OpenHEC在线平台的硬件节点上，sobel\_test中提供了一个执行脚本fpga\_run.sh，内容如下：
 
@@ -226,7 +120,7 @@ Sobel加速器需要运行在OpenHEC在线平台的硬件节点上，sobel\_test
 
 ./devmem2 0xf8008014 w 1
 
-cat user\_design.bin &gt; /dev/xdevcfg
+cat user\_design.bit &gt; /dev/xdevcfg
 
 ./a.out
 
