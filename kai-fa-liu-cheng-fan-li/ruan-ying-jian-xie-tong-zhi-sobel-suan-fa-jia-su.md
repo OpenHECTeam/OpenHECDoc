@@ -127,9 +127,9 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
 
 3. 在节点上实现软件功能
 
-   点击终端登录，在/home/linaro下找到sobel\_sw\_prog目录下，通过执行./fpga\_run.sh脚本，配置FPGA并开始执行。Sobel加速器执行时采用的输入图像如下：
+   点击终端登录，在/home/linaro下找到sobel\_sw\_prog目录下，通过执行./fpga\_run.sh脚本，配置FPGA并开始执行。Sobel加速器执行时采用的输入图像如下：![](/assets/sobel_input.png)
 
-   执行完成后，得到输出图像文件result.bmp，打开后如
+   执行完成后，得到输出图像文件result.bmp，打开后如下。![](/assets/sobel_output.png)
 
 
 
