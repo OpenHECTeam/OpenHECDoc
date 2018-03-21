@@ -28,7 +28,5 @@
     * [RELAX\_FlyxSOM\_LED7SEG\_SRAM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/shi-yan-zhi-cheng-bao-relax-flyxsom-led7seg-sram-ru-men-shou-ce.md)
     * [RELAXSoC\_FlyxSOM](ying-jian/flyx-somji-chu-pei-zhi/ying-jian-zhi-cheng-bao/xiang-mu-zhi-cheng-bao-relaxsoc-flyxsom-ru-men-shou-ce.md)
 * [知识点](zhi-shi-dian.md)
-  * [课程类](zhi-shi-dian/ke-cheng-lei.md)
-  * [技能类](zhi-shi-dian/ji-neng-lei.md)
 * [常见问题](chang-jian-wen-ti.md)
 
