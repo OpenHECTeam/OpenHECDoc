@@ -26,57 +26,115 @@ Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算
    从oLib中拷贝项目支撑包到桌面工作目录下
    ，将Sobel算法的HLS代码添加到项目支撑包中，即将sobel\_hls\_src目录下的所有文件和目录一起上传到RELAXSoC\_FlyxSOM的src目录下。
 2. Sobel代码修改  
-   OpenHEC项目支撑包环境下，需要对Sobel加速器的HLS顶层函数接口进行修改，接口函数名和约束必须符合项目支撑包的要求。修改后的代码如下：
+   OpenHEC项目支撑包环境下，需要对Sobel加速器的HLS顶层函数接口进行修改，接口函数名和约束必须符合项目支撑包的要求。
 
-   `void user_accel(volatile hls_int32 *inout_pix, unsigned int byte_rdoffset, unsigned int byte_wroffset, int rows, int cols, int stride, int addr_reserved)  
-   {`  
-   `//#pragma HLS RESOURCE variable=inout_pix core=AXI4M`
+   修改后的代码如下：
 
-   `//Data Flow Bus(Read and Write)`
+   ```c
+   void user_accel(volatile hls_int32 *inout_pix, unsigned int byte_rdoffset, unsigned int byte_wroffset, int rows, int cols, int stride, int addr_reserved)  
+   {
+       //#pragma HLS RESOURCE variable=inout_pix core=AXI4M
+       //Data Flow Bus(Read and Write)
+       #pragma HLS INTERFACE m_axi depth=2048 port=inout_pix offset=off bundle=user_axi
+       //Control Bus
+       #pragma HLS INTERFACE s_axilite register port=return offset=0x00 bundle=user_axi4lite
+       #pragma HLS INTERFACE s_axilite register port=byte_rdoffset offset=0x14 bundle=user_axi4lite
+       #pragma HLS INTERFACE s_axilite register port=byte_wroffset offset=0x1c bundle=user_axi4lite
+       #pragma HLS INTERFACE s_axilite register port=rows offset=0x24 bundle=user_axi4lite
+       #pragma HLS INTERFACE s_axilite register port=cols offset=0x2c bundle=user_axi4lite
+       #pragma HLS INTERFACE s_axilite register port=stride offset=0x34 bundle=user_axi4lite
+       //Ensure Address Range
+       #pragma HLS INTERFACE s_axilite register port=addr_reserved offset=0xFFF0 bundle=user_axi4lite
+       ......
+   }
+   ```
 
-   `#pragma HLS INTERFACE m_axi depth=2048 port=inout_pix offset=off bundle=user_axi`
+   修改内容包括：
 
-   `//Control Bus`
+   函数名由sobel\_filter改为user\_accel
 
-   `#pragma HLS INTERFACE s_axilite register port=return offset=0x00 bundle=user_axi4lite`
+   增加int addr\_reserved，offset=0xFFF0，用于约束地址总线位宽为32位
 
-   `#pragma HLS INTERFACE s_axilite register port=byte_rdoffset offset=0x14 bundle=user_axi4lite`
+   将inout\_pix参数绑定到user\_axi接口，使加速器IP可以直接访问内存；同时，将其它参数也绑定到user\_axi4lite，用于配置加速器IP。
 
-   `#pragma HLS INTERFACE s_axilite register port=byte_wroffset offset=0x1c bundle=user_axi4lite`
+3. 编译并生成加速器位流文件
 
-   `#pragma HLS INTERFACE s_axilite register port=rows offset=0x24 bundle=user_axi4lite`
+   完成代码修改后，在RELAXSoC\_FlyxSOM目录下执行make命令，编译整个项目。编译后，在impl/bin\_file目录下可以看到已生成好的Sobel加速器位流文件user\_design.bit。
 
-   `#pragma HLS INTERFACE s_axilite register port=cols offset=0x2c bundle=user_axi4lite`
+   自此，Sobel硬件加速器部分已经全部完成，下面是节点上的软件部分的实现。
 
-   `#pragma HLS INTERFACE s_axilite register port=stride offset=0x34 bundle=user_axi4lite`
+4. 在节点上实现软件功能
 
-   `//Ensure Address Range`
+   软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
 
-   `#pragma HLS INTERFACE s_axilite register port=addr_reserved offset=0xFFF0 bundle=user_axi4lite`
+   ```c
+   int main()
+   {
+       void \*user\_base\_addr;
+       int ncols = 1920;
+       int nrows = 1080;
+       //将控制接口映射到进程的地址空间
+       set_mapbase(&user_base_addr, BASE_ADDR\);
+       unsigned char \*R, \*G, \*B;
 
-   `......`
+   R = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
 
-   `}`
+   G = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
 
-修改内容包括：
+   B = \(unsigned char\*\)malloc\(ncols\*nrows\*sizeof\(unsigned char\)\);
 
-函数名由sobel\_filter改为user\_accel
+   //读取输入图像文件
 
-增加int addr\_reserved，offset=0xFFF0，用于约束地址总线位宽为32位
+   BMP\_Read\("test\_1080p.bmp", nrows, ncols, R, G, B\);
 
-将inout\_pix参数绑定到user\_axi接口，使加速器IP可以直接访问内存；同时，将其它参数也绑定到user\_axi4lite，用于配置加速器IP。
+   int size = ncols\*nrows\*4;
 
-2.4 编译和运行
+   clearMemory\(0x34000000, size\);
 
-2.4.1 编译并生成加速器位流文件
+   //将输入图像文件写入物理地址为0x34000000起始的内存区域中
 
-完成代码修改后，在RELAXSoC\_FlyxSOM目录下执行make命令，编译整个项目。编译后，在impl/bin\_file目录下可以看到已生成好的Sobel加速器位流文件user\_design.bin。
+   Write\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x34000000\);
 
-自此，Sobel硬件加速器部分已经全部完成，下面是节点上的软件部分的实现。
+   //配置Sobel加速器IP的各项参数
 
-2.4.2 在节点上实现软件功能
+   write\_uint32\(user\_base\_addr, RDOFFSET, 0x34000000\);
 
-软件功能部分主要包括加载图像文件、配置并启动Sobel硬件加速器，以及最后将结果写入图像文件。这部分代码在sobel\_test目录下，包含多个.h和.c文件，其中，sobel软件部分的主函数在sobel\_test.c中实现。
+   write\_uint32\(user\_base\_addr, WROFFSET, 0x36000000\);
+
+   write\_uint32\(user\_base\_addr, ROWS, nrows\);
+
+   write\_uint32\(user\_base\_addr, COLS, ncols\);
+   write_uint32(user_base_addr, STRIDE, ncols);
+   //启动加速器IP
+   write\_uint32\(user\_base\_addr, AP\_CTRL, 1\);    
+
+   //以轮询方式检测加速器是否执行完毕
+
+   while\(1\){
+
+       if\(read\_uint32\(user\_base\_addr, AP\_CTRL\)&0x2==0x2\) break;
+
+   }
+
+   //执行完毕后，将结果数据从0x36000000起始的内存区域中读取计算结果
+
+   Read\_AXI4\_RGB\_DATA\(R, G, B, ncols, nrows, 0x36000000\);
+
+   //将计算结果写入结果文件中
+
+   BMP\_Write\("result.bmp", nrows, ncols, R, G, B\);
+
+   free\(R\);
+
+   free\(G\);
+
+   free\(B\);
+
+   return 0;
+   }
+   ```
+
+
 
 int main\(\)
 
