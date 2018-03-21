@@ -1,4 +1,4 @@
-### [软硬件协同之sobel算法加速](http://www.iopenhec.com/#!/experiment/000020170417000000000004)
+### [硬件协同之sobel算法加速](http://www.iopenhec.com/#!/experiment/000020170417000000000004)
 
 Sobel边缘检测算法是图像视频处理中的一个经典算法，在计算机视觉等领域应用广泛。
 
